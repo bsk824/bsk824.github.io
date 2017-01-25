@@ -97,11 +97,13 @@ function menu() {
 				loading.fadeIn().addClass('loadingOn').find('p').text(tit);
 			},
 			success : function(data){
-				$('#contents').html(data);
-				$('.snbTit').text(snbTit);
-				$('.pageTit').text(tit);
-				$('.snbMenu').children().remove();
-				$('.snbMenu').append(list);
+				setTimeout(function(){
+					$('#contents').html(data);
+					$('.snbTit').text(snbTit);
+					$('.pageTit').text(tit);
+					$('.snbMenu').children().remove();
+					$('.snbMenu').append(list);
+				},500);
 			},
 			complete : function() {
 				setTimeout(function(){
