@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+* {margin:0;padding:0;}
+body {color:#333;font:14px/1.5 Nanum Gothic, dotum, '돋움', sans-serif;-webkit-text-size-adjust:none;word-break:keep-all;}
+a {color:#333;text-decoration:none;}
+ol, li {list-style:none;}
+table {width:100%;border-collapse:collapse;border:0;word-break:normal;}
+colgroup {background:none;}
+input, select, textarea, button {vertical-align:middle;font:14px/1.5 Nanum Gothic, Dotum, '돋움', Sans-serif;}
+fieldset, img {border:0;}
+img {vertical-align:top;}
+label, td img {vertical-align:middle;}
+legend, caption {visibility:hidden;width:0;font-size:0;line-height:0;text-indent:-5000px;}
+address, em {font-style:normal;}
+button {overflow:visible;cursor:pointer;background:none;border:0;}
