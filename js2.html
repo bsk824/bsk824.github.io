@@ -1,48 +1,114 @@
 <h1 class="pageTit"></h1>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
-<p>menu4_1</p>
+<style type="text/css">
+* {padding:0;margin:0;}
+.evtWrap {position:fixed;top:0;right:0;bottom:0;left:0;overflow:hidden;background:yellow;z-index:9;}
+.endGame {position:relative;height:100vw;}
+.evtWrap .btnStart {position:fixed;top:50%;left:50%;font-size:20vw;transform:translate(-50%,-50%);z-index:2;}
+.start .bg {position:absolute;top:0;right:0;bottom:0;left:0;}
+.evtWrap .countDown {display:none;position:fixed;top:50%;right:0;left:0;text-align:center;font-size:50vw;transform:translate(0,-50%);}
+.clickCount {padding:10vw 0 100vw;text-align:center;font-size:10vw;}
+.clickCount .count {color:red;}
+.itemLink button {position:absolute;width:8vw;height:10vw;bottom:-15%;left:0;border-radius:50%;background:blue;border:0;animation-name:rotate1;animation-duration:2s;animation-iteration-count:infinite;}
+.itemLink button.on {background:red;z-index:-1;}
+.itemLink button:nth-of-type(2) {left:10%;}
+.itemLink button:nth-of-type(3) {left:20%;}
+.itemLink button:nth-of-type(4) {left:30%;}
+.itemLink button:nth-of-type(5) {left:40%;}
+.itemLink button:nth-of-type(6) {left:50%;}
+.itemLink button:nth-of-type(7) {left:60%;}
+.itemLink button:nth-of-type(8) {left:70%;}
+.itemLink button:nth-of-type(9) {left:80%;}
+.itemLink button:nth-of-type(10) {left:90%;}
+.start button {bottom:120%;}
+.start button.item1 {left:0;transition:bottom 15s,left 11s;}
+.start button.item2 {left:10%;transition:bottom 14s,left 12s;animation-name:rotate2;animation-duration:2s;animation-iteration-count:infinite;}
+.start button.item3 {left:20%;transition:bottom 13s,left 13s;}
+.start button.item4 {left:30%;transition:bottom 12s,left 14s;animation-name:rotate2;animation-duration:2s;animation-iteration-count:infinite;}
+.start button.item5 {left:40%;transition:bottom 11s,left 15s;}
+.start button.item6 {left:50%;transition:bottom 15s,left 14s;animation-name:rotate2;animation-duration:2s;animation-iteration-count:infinite;}
+.start button.item7 {left:60%;transition:bottom 14s,left 13s;}
+.start button.item8 {left:70%;transition:bottom 13s,left 12s;animation-name:rotate2;animation-duration:2s;animation-iteration-count:infinite;}
+.start button.item9 {left:80%;transition:bottom 12s,left 11s;}
+.start button.item10 {left:90%;transition:bottom 11s,left 15s;animation-name:rotate2;animation-duration:2s;animation-iteration-count:infinite;}
+@keyframes rotate1 {
+	0% {transform:rotate(-30deg);}
+	50% {transform:rotate(30deg);}
+	100% {transform:rotate(-30deg);}
+}
+@keyframes rotate2 {
+	0% {transform:rotate(30deg);}
+	50% {transform:rotate(-30deg);}
+	100% {transform:rotate(30deg);}
+}
+</style>
+
+<div class="evtWrap">
+	<button type="button" onclick="gameStart();" class="btnStart">start</button>
+	<div class="bg"></div>
+	<p class="itemLink">
+		<button type="button"></button>
+		<button type="button"></button>
+		<button type="button"></button>
+		<button type="button"></button>
+		<button type="button"></button>
+		<button type="button"></button>
+		<button type="button"></button>
+		<button type="button"></button>
+		<button type="button"></button>
+		<button type="button"></button>
+	</p>
+	<p class="countDown">5</p>
+</div>
+<p class="clickCount">터치 성공 <strong class="count">0</strong>회</p>
+
+<script type="text/javascript">
+function gameStart() {
+	var countDown = $('.countDown')
+		,item = $('.itemLink button')
+		,count = 0
+		,test = new Array
+		,test = [];
+
+	$('.btnStart').hide();
+	countDown.show();
+
+	var countDownN = countDown.text();
+	var countTime = setInterval(function(){
+		--countDownN;
+		if (countDownN === -1) {
+			game();
+		} else {
+			countDown.text(countDownN);
+		}
+	},1000);
+
+	function randomRange(n1,n2) {
+		return Math.floor((Math.random() * (n2-n1+1)) + n1);
+	}
+
+	function game() {
+		$('.evtWrap').addClass('start');
+		item.each(function() {
+			var randomN = randomRange(1,10);
+			$(this).addClass('item'+ randomN);
+		});
+		clearInterval(countTime);
+		countDown.hide();
+		setTimeout(function(){
+			$('.evtWrap').removeClass('start').addClass('endGame');
+			item.hide();
+			$('html,body').animate({scrollTop:$('.clickCount').offset().top},300);
+		},9000);
+	}
+
+	item.bind('touchstart', function(){
+		var _this = $(this);
+		if (!_this.hasClass('on')) {
+			$(this).addClass('on');
+			++count;
+			$('.count').text(count);
+		}
+	});
+}
+
+</script>
