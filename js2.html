@@ -1,8 +1,7 @@
 <h1 class="pageTit"></h1>
 <style type="text/css">
-* {padding:0;margin:0;}
 .evtWrap {position:fixed;top:0;right:0;bottom:0;left:0;overflow:hidden;background:yellow;z-index:9;}
-.endGame {position:relative;height:100vw;}
+.endGame {position:static;height:100vw;}
 .evtWrap .btnStart {position:fixed;top:50%;left:50%;font-size:20vw;transform:translate(-50%,-50%);z-index:2;}
 .start .bg {position:absolute;top:0;right:0;bottom:0;left:0;}
 .evtWrap .countDown {display:none;position:fixed;top:50%;right:0;left:0;text-align:center;font-size:50vw;transform:translate(0,-50%);}
@@ -101,7 +100,7 @@ function gameStart() {
 		},9000);
 	}
 
-	item.bind('touchstart', function(){
+	item.bind('click', function(){
 		var _this = $(this);
 		if (!_this.hasClass('on')) {
 			$(this).addClass('on');
