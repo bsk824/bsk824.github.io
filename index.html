@@ -24,7 +24,7 @@
 				</li>
 				<li><a href="#css1">CSS</a>
 					<ul class="m2Dep">
-						<li><a href="#css1">정사각형 박스</a></li>
+						<li><a href="#css1">너비에 비례하는 박스</a></li>
 						<li><a href="#css2">말줄임</a></li>
 						<li><a href="#css3">화살표</a></li>
 					</ul>
@@ -62,10 +62,19 @@
 <script type="text/javascript">
 function menu() {
 	var menuWrap = $('header')
+		,m1dep = menuWrap.find('.m1Dep > li > a')
 		,m2dep = menuWrap.find('.m2Dep > li > a')
 		,loading = $('.loading')
 		,page,tit,snbTit,list;
 
+	m1dep.bind('mouseenter', function(){
+		var _this = $(this);
+		$('.m2Dep').stop().slideUp(200);
+		_this.next().stop().slideDown(200);
+	});
+	menuWrap.bind('mouseleave',function(){
+		$('.m2Dep').stop().slideUp(200);
+	});
 	if (window.location.href.indexOf('#') > -1) { 
 		var href = window.location.href;
 		page = href.split('#')[1];

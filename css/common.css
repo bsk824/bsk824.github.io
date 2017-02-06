@@ -17,20 +17,21 @@
 .loadingOn:before {left:0;}
 .loadingOn:after {left:200%;}
 
-#header {position:fixed;top:0;right:0;left:0;height:79px;background:#fff;border-bottom:1px solid #999;text-align:center;}
+#header {position:fixed;top:0;right:0;left:0;height:39px;background:#fff;border-bottom:1px solid #999;text-align:center;}
 #header li {display:inline-block;}
 #header > nav > ul > li {margin:10px 50px 0;}
 #header > nav > ul > li > a {font-weight:bold;}
-#header .m2Dep li {margin:5px;}
+#header .m2Dep {display:none;position:absolute;background:#fff;}
+#header .m2Dep li {display:block;margin:0;text-align:left;}
 #header .current > a {border-bottom:1px solid #999;}
 
-#snb {position:fixed;top:80px;bottom:0;left:0;width:169px;padding:15px;border-right:1px solid #999;}
+#snb {position:fixed;top:40px;bottom:0;left:0;width:169px;padding:15px;border-right:1px solid #999;}
 #snb .snbTit {margin:0 0 10px;}
 #snb .current > a {border-bottom:1px solid #999;}
 
 #contents {margin:80px 0 30px 200px;padding:50px 50px 100px;}
 #contents:after {content:"";display:block;clear:both;}
 #contents .pageTit {margin:0 0 100px;font-size:30px;}
-#contents .subTit{margin:30px 0 0;}
+#contents .subTit {margin:30px 0 0;}
 
 #footer {position:fixed;left:0;right:0;bottom:0;background:#999;text-align:center;line-height:30px;}

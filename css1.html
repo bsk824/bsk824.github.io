@@ -1,48 +1,52 @@
 <h1 class="pageTit"></h1>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
-<p>menu2_1</p>
+
+<style type="text/css">
+.respBox {position:relative;width:120px;margin:0 5px;background:yellow;float:left;transition:all .3s;}
+.respBox:after {content:"";display:block;padding-top:100%;}
+.respBox .boxCont {position:absolute;top:0;right:0;bottom:0;left:0;text-align:center;}
+.respBox .boxCont p {font-size:1em;display:inline-block;}
+.respBox .boxCont:after {content:"";display:inline-block;height:100%;vertical-align:middle;}
+.respBox2:after {padding-top:150%;}
+.respBox3:after {padding-top:200%;}
+.wInput {margin:0 0 20px;}
+.wInput button {border:1px solid black;vertical-align:middle;}
+</style>
+
+<p class="wInput">
+	너비 입력(단위 px)<br />
+	<input type="number" maxlength="3" />
+</p>
+
+<div class="respBox">
+	<div class="boxCont">
+		<p>1:1 사각형</p>
+	</div>
+</div>
+
+<div class="respBox respBox2">
+	<div class="boxCont">
+		<p>1:1.5 사각형</p>
+	</div>
+</div>
+
+<div class="respBox respBox3">
+	<div class="boxCont">
+		<p>1:2 사각형</p>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	$('.wInput input').on({
+		change : function(){
+			var boxW = $(this).val();
+			$('.respBox').css('width',boxW+'px');
+		},
+		keydown : function(e) {
+			if (event.which == 13) {
+				var boxW = $(this).val();
+				$('.respBox').css('width',boxW+'px');
+			}
+		}
+	});
+</script>
