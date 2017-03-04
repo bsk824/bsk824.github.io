@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes, target-densitydpi=medium-dpi" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+</head>
+<body>
+  <button type="button" onclick="aa();">aa</button>
+   <script>
+    function aa() {
+        var menu = prompt('김치찌게, 라면, 치킨, 피자 중 하나를 적으세요.');
+        var menuNum = menu - 1;
+        var menuArray = ['김치찌게','라면','치킨','피자'];
+        (function yourmenu() {
+            if (menu < 5) {
+                alert("당신이 주문한 메뉴는 " + menuArray[menuNum] + " 입니다.");
+            } else {
+                return false;
+            }
+        })();
+    }
+    </script> 
+</body>
+</html>
