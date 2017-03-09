@@ -10,19 +10,35 @@
 
 <body>
 <ul id="menu">
-    
 </ul>
 <script>
 $(function(){
 	$.ajax({
-		type: "get"
+		type : "get"
+		,dataType: "json"
 		,url: "menu.json"
-		,success: function(json){
-			var list = $.parseJSON(json);
-			var listLen = list.length;
-			alert(listLen);
+		,success: function(data){
+			var $html = listCreate(data);
+			$('#menu').html($html);
 		}
 	});
+	function listCreate(jdata){
+
+		var menulist = "";
+
+		$.each(jdata, function(idx, item){
+			var name = item.name
+				,href = item.href;
+			if (item.menu2dep) {
+				var menu2 = listCreate(item.menu2dep);
+				menulist += "<li><a href="+href+">"+name+"</a><ul>"+menu2+"</ul></li>";
+			} else {
+				menulist += "<li><a href="+href+">"+name+"</a></li>";
+			}
+		});
+
+		return menulist;
+	}
 })
 </script>
 

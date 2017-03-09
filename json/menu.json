@@ -1,4 +1,16 @@
 [
-	{"menu" : "menu1", "href" : "menu1.html"},
-	{"menu" : "menu2", "href" : "menu2.html"}
+	{"name" : "menu1", "href" : "menu1.html" , "menu2dep" : [
+		{"name" : "menu1_1", "href" : "menu1_1.html" , "menu2dep" : [
+			{"name" : "menu1_1_1", "href" : "menu1_1_1.html"},
+			{"name" : "menu1_1_2", "href" : "menu1_1_2.html"}
+		]},
+		{"name" : "menu1_2", "href" : "menu1_2.html"}
+	]},
+	{"name" : "menu2", "href" : "menu2.html" , "menu2dep" : [
+		{"name" : "menu2_1", "href" : "menu2_1.html"},
+		{"name" : "menu2_2", "href" : "menu2_2.html" , "menu2dep" : [
+			{"name" : "menu2_2_1", "href" : "menu2_2_1.html"},
+			{"name" : "menu2_2_2", "href" : "menu2_2_2.html"}
+		]}
+	]}
 ]
