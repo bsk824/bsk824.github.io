@@ -12,7 +12,6 @@
 <ul id="menu">
     
 </ul>
-aa
 <script>
 $(function(){
     $.ajax({
@@ -27,12 +26,13 @@ $(function(){
                     ,name = $this.find('> name').text()
                     ,href = $this.find('> href').text()
                     ,menu2dep = ""
-                    ,menulist2 = $this.find('> menu2dep')
-                    ,menulist2Str = "";
+                    ,menulist2 = $this.find('> menu2dep');
 
                 if (menulist2.length) {
                     menuStr = "<li><a href='"+ href +"'>"+ name +"</a><ul class='menu2dep'></ul></li>"
+                    $('#menu').append(menuStr);
                     menu2dep = $('#menu > li').eq(idx).find('.menu2dep');
+
                     menulist2.each(function(){
                         var menu2 = $(this)
                             ,name2 = menu2.find('> name').text()
@@ -42,7 +42,6 @@ $(function(){
                         
                         menu2dep.append(menulist2Str);
                     });
-                    $('#menu').append(menuStr);
                 } else {
                     menuStr = "<li><a href='"+ href +"'>"+ name +"</a></li>"
                     $('#menu').append(menuStr);
