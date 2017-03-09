@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes, target-densitydpi=medium-dpi" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+<ul id="menu">
+    
+</ul>
+<script>
+$(function(){
+	$.ajax({
+		type: "get"
+		,url: "menu.json"
+		,success: function(json){
+			var list = $.parseJSON(json);
+			var listLen = list.length;
+			alert(listLen);
+		}
+	});
+})
+</script>
+
+</body>
+</html>

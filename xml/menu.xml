@@ -12,8 +12,6 @@
                 <href>link1_2.html</href>
             </menu2dep>
         </menulist>
-    </menu>
-    <menu>
         <menulist>
             <name>menu2</name>
             <href>link2.html</href>
