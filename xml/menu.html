@@ -14,42 +14,42 @@
 </ul>
 <script>
 $(function(){
-    $.ajax({
-        type: "get"
-        ,dataType: "xml"
-        ,url: "menu.xml"
-        ,success: function(xml){
-            var xmlData = $(xml).find('menulist');
-            var menuStr = "";
-            $(xmlData).each(function(idx){
-                var $this = $(this)
-                    ,name = $this.find('> name').text()
-                    ,href = $this.find('> href').text()
-                    ,menu2dep = ""
-                    ,menulist2 = $this.find('> menu2dep');
+	$.ajax({
+		type: "get"
+		,dataType: "xml"
+		,url: "menu.xml"
+		,success: function(xml){
+			var xmlData = $(xml).find('menulist');
+			var menuStr = "";
+			$(xmlData).each(function(idx){
+				var $this = $(this)
+					,name = $this.find('> name').text()
+					,href = $this.find('> href').text()
+					,menu2dep = ""
+					,menulist2 = $this.find('> menu2dep');
 
-                if (menulist2.length) {
-                    menuStr = "<li><a href='"+ href +"'>"+ name +"</a><ul class='menu2dep'></ul></li>"
-                    $('#menu').append(menuStr);
-                    menu2dep = $('#menu > li').eq(idx).find('.menu2dep');
+				if (menulist2.length) {
+					menuStr = "<li><a href='"+ href +"'>"+ name +"</a><ul class='menu2dep'></ul></li>"
+					$('#menu').append(menuStr);
+					menu2dep = $('#menu > li').eq(idx).find('.menu2dep');
 
-                    menulist2.each(function(){
-                        var menu2 = $(this)
-                            ,name2 = menu2.find('> name').text()
-                            ,href2 = menu2.find('> href').text(); 
-                        
-                        menulist2Str = "<li><a href='"+ href2 +"'>"+ name2 +"</a></li>"
-                        
-                        menu2dep.append(menulist2Str);
-                    });
-                } else {
-                    menuStr = "<li><a href='"+ href +"'>"+ name +"</a></li>"
-                    $('#menu').append(menuStr);
-                }
+					menulist2.each(function(){
+						var menu2 = $(this)
+							,name2 = menu2.find('> name').text()
+							,href2 = menu2.find('> href').text(); 
+						
+						menulist2Str = "<li><a href='"+ href2 +"'>"+ name2 +"</a></li>"
+						
+						menu2dep.append(menulist2Str);
+					});
+				} else {
+					menuStr = "<li><a href='"+ href +"'>"+ name +"</a></li>"
+					$('#menu').append(menuStr);
+				}
 
-            });
-        }
-    });
+			});
+		}
+	});
 })
 </script>
 
