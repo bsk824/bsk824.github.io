@@ -18,6 +18,16 @@
 			<menulist>
 				<name>menu2</name>
 				<href>link2.html</href>
+				<menu>
+					<menulist>
+						<name>menu2_1</name>
+						<href>link2_1.html</href>
+					</menulist>
+					<menulist>
+						<name>menu2_2</name>
+						<href>link2_2.html</href>
+					</menulist>
+				</menu>
 			</menulist>
 		</menu>
 	</menutree>

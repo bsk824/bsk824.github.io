@@ -32,8 +32,9 @@ $(function(){
 			var $this = $(this)
 				,name = $this.find('> name').text()
 				,href = $this.find('> href').text();
-			if (menu.find('menu').length) {
-				var menu2 = menuCreate(menu.find('menu'))
+            
+			if (menu.find('menu').length) {                
+				var menu2 = menuCreate($this.find('menu'));                
 				menulist += "<li><a href="+href+">"+name+"</a><ul>"+menu2+"</ul></li>";
 			} else {
 				menulist += "<li><a href="+href+">"+name+"</a></li>";
