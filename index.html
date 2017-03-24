@@ -42,11 +42,6 @@
 	</header>
 
 	<section id="container">
-		<nav id="snb">
-			<h1 class="snbTit"></h1>
-			<ul class="snbMenu">
-			</ul>
-		</nav>
 		<section id="contents">
 		</section>
 	</section>
@@ -62,7 +57,7 @@
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/ui.js"></script>
 <script type="text/javascript">
-function menu() {
+(function menu() {
 	var menuWrap = $('header')
 		,m1dep = menuWrap.find('.m1Dep > li > a')
 		,m2dep = menuWrap.find('.m2Dep > li > a')
@@ -82,7 +77,7 @@ function menu() {
 		page = href.split('#')[1];
 
 		var $this = $('.m2Dep > li > [href="#' + page + '"]');
-		snbTit = $this.parent().parent().prev().text();
+		snbTit = $this.closest('li').find('> a').text();
 		m2dep.parent().removeClass('current');
 		$this.parent().addClass('current');
 
@@ -93,11 +88,10 @@ function menu() {
 			url : page+'.html',
 			dataType: 'html',
 			success : function(data){
-				$('#contents').html(data);
-				$('.snbTit').text(snbTit);
-				$('.pageTit').text(tit);
-				$('.snbMenu').children().remove();
-				$('.snbMenu').append(list);
+                var subMenu = '<section id="snb"><h1 class="snbTit">'+snbTit+'</h1><nav><ul class="snbMenu">'+list+'</ul></nav></section>'
+                $('#container').find('#snb').remove();
+                $('#container').prepend(subMenu);
+                $('#contents').html(data).prepend('<h1 class="pageTit">'+tit+'</h1>');
 			}
 		});
 	}
@@ -110,13 +104,10 @@ function menu() {
 				loading.fadeIn().addClass('loadingOn').find('p').text(tit);
 			},
 			success : function(data){
-				setTimeout(function(){
-					$('#contents').html(data);
-					$('.snbTit').text(snbTit);
-					$('.pageTit').text(tit);
-					$('.snbMenu').children().remove();
-					$('.snbMenu').append(list);
-				},500);
+				var subMenu = '<section id="snb"><h1 class="snbTit">'+snbTit+'</h1><nav><ul class="snbMenu">'+list+'</ul></nav></section>'
+                $('#container').find('#snb').remove();
+                $('#container').prepend(subMenu);
+                $('#contents').html(data).prepend('<h1 class="pageTit">'+tit+'</h1>');
 			},
 			complete : function() {
 				setTimeout(function(){
@@ -143,8 +134,7 @@ function menu() {
 		pageLoad(page,tit,snbTit,list);
 	}
 
-}
-menu();
+})()
 </script>
 
 </body>
