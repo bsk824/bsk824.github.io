@@ -47,7 +47,7 @@
 	</section>
 
 	<footer id="footer">
-		<small>Copyright&copy;2016 By SEUNGKI. All right reserved.</small>
+		<small>Copyright&copy;2017 By SEUNGKI. All right reserved.</small>
 	</footer>
 
 <div class="loading">
@@ -124,7 +124,7 @@
 		page = href.split('#')[1];
 
 		var $this = $('.m2Dep > li > [href="#' + page + '"]');
-		snbTit = $this.parent().parent().prev().text();
+		snbTit = $this.closest('li').find('> a').text();
 		m2dep.parent().removeClass('current');
 		$this.parent().addClass('current');
 		
