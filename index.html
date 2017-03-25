@@ -24,18 +24,18 @@
 				</li>
 				<li><a href="#css1">CSS</a>
 					<ul class="m2Dep">
-						<li><a href="#css1">너비에 비례하는 박스</a></li>
-						<li><a href="#css2">말줄임</a></li>
-						<li><a href="#css3">화살표</a></li>
+						<li><a href="#css1" data-desc="너비에 비례하는 박스">박스</a></li>
+						<li><a href="#css2" data-desc="webkit 두줄 이상 말줄임">말줄임</a></li>
+						<li><a href="#css3" data-desc="css로 그리는 화살표">화살표</a></li>
 					</ul>
 				</li>
 				<li><a href="#js1">JavaScript</a>
 					<ul class="m2Dep">
-						<li><a href="#js1">로또</a></li>
-						<li><a href="#js2">풍선게임</a></li>
-						<li><a href="#js3">bxSlider</a></li>
-                        <li><a href="#js4">ajax json</a></li>
-                        <li><a href="#js5">ajax xml</a></li>
+						<li><a href="#js1" data-desc="배열을 이용한 로또 게임">로또</a></li>
+						<li><a href="#js2" data-desc="모바일용 풍선 터치 게임">풍선게임</a></li>
+						<li><a href="#js3" data-desc="bxSlider 활용 예제">bxSlider</a></li>
+                        <li><a href="#js4" data-desc="json 활용">json</a></li>
+                        <li><a href="#js5" data-desc="xml 활용">xml</a></li>
 					</ul>
 				</li>
 			</ul>
@@ -63,7 +63,7 @@
 		,m1dep = menuWrap.find('.m1Dep > li > a')
 		,m2dep = menuWrap.find('.m2Dep > li > a')
 		,loading = $('.loading')
-		,page,tit,snbTit,list;
+		,page,tit,snbTit,list,desc;
 
 	m1dep.bind('mouseenter', function(){
 		var _this = $(this);
@@ -97,12 +97,12 @@
 		});
 	}
 
-	function pageLoad(page,tit,snbTit,list) {
+	function pageLoad(page,tit,snbTit,list,desc){
 		$.ajax({
 			url : page+'.html',
 			dataType: 'html',
-			beforeSend : function() {
-				loading.fadeIn().addClass('loadingOn').find('p').text(tit);
+			beforeSend : function(){
+				loading.fadeIn().addClass('loadingOn').find('p').text(desc);
 			},
 			success : function(data){
 				var subMenu = '<section id="snb"><h1 class="snbTit">'+snbTit+'</h1><nav><ul class="snbMenu">'+list+'</ul></nav></section>'
@@ -130,9 +130,10 @@
 		$this.parent().addClass('current');
 		
 		tit = $this.text();
+        desc = $this.data('desc');
 		list = $this.parent().parent().html();
 
-		pageLoad(page,tit,snbTit,list);
+		pageLoad(page,tit,snbTit,list,desc);
 	}
 
 })()
