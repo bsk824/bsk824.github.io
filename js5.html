@@ -1,27 +1,13 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-<title></title>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes, target-densitydpi=medium-dpi" name="viewport">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<script type="text/javascript" src="../js/jquery-1.11.1.min.js"></script>
-</head>
-
-<body>
-<ul id="menu">
-    
-</ul>
 <script>
 $(function(){
 	$.ajax({
 		type: "get"
 		,dataType: "xml"
-		,url: "menu.xml"
+		,url: "xml/menu.xml"
 		,success: function(xml){
 			var xmlData = $(xml).find('menutree > menu');
 			var $html = menuCreate(xmlData);
-			$('#menu').html($html);
+			$('#contents').append('<ul>'+$html+'</ul>');
 		}
 	});
 	function menuCreate(xdata) {
@@ -46,6 +32,3 @@ $(function(){
 	}
 })
 </script>
-
-</body>
-</html>
