@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes, target-densitydpi=medium-dpi" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+</head>
+<body>
+<script>
+    
+    function gugu(num){
+        var i = 1;
+        var val = num * i;
+        while(i < 10) {
+            var val = num * i;
+            console.log(num + ' X '+ i +' = '+ val);
+            i++;
+        }
+    }
+    (function aa(){
+        var num = prompt();
+        if (isNaN(num) == true) {
+            alert('다시시도');
+        } else if (num == null) {
+            alert('취소 하셨습니다.');
+        } else if (num == '') {
+            alert('입력하지 않으셨습니다.');
+            aa(num);
+        } else {
+            gugu(num);
+        }
+    })();
+    
+</script>
+</body>
+</html>
