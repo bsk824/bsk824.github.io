@@ -1,15 +1,15 @@
 $(function() {
-	// if (getCookie('hello') != 'end') {
-	// 	var hello = $('.hello');
-	// 	hello.show();
-	// 	setTimeout(function(){
-	// 		hello.addClass('startHello');
-	// 	},1);
-	// 	setTimeout(function(){
-	// 		hello.fadeOut();
-	// 		setCookie('hello','end',1);
-	// 	},8000);
-	// }
+	if (getCookie('hello') != 'end') {
+		var hello = $('.hello');
+		hello.show();
+		setTimeout(function(){
+			hello.addClass('startHello');
+		},1);
+		setTimeout(function(){
+			hello.fadeOut();
+			setCookie('hello','end',1);
+		},8000);
+	}
 });
 function getCookie(name) {
 	var i,x,y,ARRcookies=document.cookie.split(";");
