@@ -11,7 +11,7 @@
 
 <body>
 
-<p class="hello"><span>HELLO WORLD!</span></p>
+<!-- <p class="hello"><span>HELLO WORLD!</span></p> -->
 
 <header id="header">
     <nav>
@@ -67,7 +67,7 @@
 	menuWrap.bind('mouseleave',function(){
 		$('.m2Dep').stop().slideUp(200);
 	});
-	if (window.location.href.indexOf('#') > -1) { 
+	if (window.location.href.indexOf('#') > -1) {
 		var href = window.location.href;
 		page = href.split('#')[1];
 
@@ -122,7 +122,7 @@
 		snbTit = $this.closest('li').find('> a').text();
 		m2dep.parent().removeClass('current');
 		$this.parent().addClass('current');
-		
+
 		tit = $this.text();
         desc = $this.data('desc');
 		list = $this.parent().parent().html();
