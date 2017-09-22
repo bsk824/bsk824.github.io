@@ -40,7 +40,7 @@
         </p>
     </div>
     <ul class="todoList all">
-        <li class="very unfinished">
+        <li class="very unfinished" draggable="true">
             <label class="todoCom" onclick="todoCom($(this));">
                 <span class="hide">현재 목록 완료시 체크</span>
                 <input type="checkbox">
@@ -54,19 +54,86 @@
                 </select>
             </span>
             <span class="todoDate">추가일 : <b>2016.12.17</b></span>
-            <span class="todoTxt" onclick="todoEdit($(this));">세탁소에서 세탁물 찾아오기</span>
+            <span class="todoTxt" onclick="todoEdit($(this));">1세탁소에서 세탁물 찾아오기</span>
             <span class="todoEdit">
                 <label for="todoEditInput" class="hide">할 일 수정</label>
                 <input type="text" id="todoEditInput" value="세탁소에서 세탁물 찾아오기">
                 <button type="button">수정</button>
             </span>
-            <button type="button" class="btnDrag">순서 옮기기</button>
+            <button type="button" class="btnDrag" draggable="true">순서 옮기기</button>
+        </li>
+        <li class="important unfinished" draggable="true">
+            <label class="todoCom" onclick="todoCom($(this));">
+                <span class="hide">현재 목록 완료시 체크</span>
+                <input type="checkbox">
+            </label>
+            <span class="todoPriority">
+                중요도 : <em>중요</em>
+                <select>
+                    <option value="very" checked="">매우 중요</option>
+                    <option value="important">중요</option>
+                    <option value="normal">보통</option>
+                </select>
+            </span>
+            <span class="todoDate">추가일 : <b>2016.12.17</b></span>
+            <span class="todoTxt" onclick="todoEdit($(this));">2세탁소에서 세탁물 찾아오기</span>
+            <span class="todoEdit">
+                <label for="todoEditInput" class="hide">할 일 수정</label>
+                <input type="text" id="todoEditInput" value="세탁소에서 세탁물 찾아오기">
+                <button type="button">수정</button>
+            </span>
+            <button type="button" class="btnDrag" draggable="true">순서 옮기기</button>
+        </li>
+        <li class="normal unfinished" draggable="true">
+            <label class="todoCom" onclick="todoCom($(this));">
+                <span class="hide">현재 목록 완료시 체크</span>
+                <input type="checkbox">
+            </label>
+            <span class="todoPriority">
+                중요도 : <em>보통</em>
+                <select>
+                    <option value="very" checked="">매우 중요</option>
+                    <option value="important">중요</option>
+                    <option value="normal">보통</option>
+                </select>
+            </span>
+            <span class="todoDate">추가일 : <b>2016.12.17</b></span>
+            <span class="todoTxt" onclick="todoEdit($(this));">3세탁소에서 세탁물 찾아오기</span>
+            <span class="todoEdit">
+                <label for="todoEditInput" class="hide">할 일 수정</label>
+                <input type="text" id="todoEditInput" value="세탁소에서 세탁물 찾아오기">
+                <button type="button">수정</button>
+            </span>
+            <button type="button" class="btnDrag" draggable="true">순서 옮기기</button>
         </li>
     </ul>
 
     <script type="text/javascript" src="js\jquery-1.9.1.min.js"></script>
     <script>
-         $("#todo").submit(function(e){
+
+        function dragNdrop() {
+            var listHtml = "",
+                listIndex;
+            $('.btnDrag').on('dragstart', function(){
+                listHtml = $(this).parent();
+                listIndex = $(this).parent().index();
+            });
+            $('.todoList li').on({
+                'drop' : function(){
+                    if ($(this).index() > listIndex) {
+                        $(this).after(listHtml);
+                    } else {
+                        $(this).before(listHtml);
+                    }
+                },
+                'dragover' : function(){
+                    event.preventDefault();
+                }
+            });
+        }
+        dragNdrop();
+
+        $("#todo").submit(function(e){
             var today = new Date(),
                 todoSel = document.todo.todoSel,
                 priorityVal = todoSel.value,
@@ -83,7 +150,7 @@
                 todoTxt.focus();
                 return false;
             } else {
-                list += '<li class="'+priorityVal+' unfinished">';
+                list += '<li class="'+priorityVal+' unfinished" draggable="true">';
                 list += '    <label class="todoCom" onclick="todoCom($(this));">';
                 list += '        <span class="hide">현재 목록 완료시 체크</span>';
                 list += '        <input type="checkbox">';
@@ -103,11 +170,12 @@
                 list += '        <input type="text" id="todoEditInput" value="'+todoTxtVal+'">';
                 list += '        <button type="button">수정</button>';
                 list += '    </span>';
-                list += '    <button type="button" class="btnDrag">순서 옮기기</button>';
+                list += '    <button type="button" class="btnDrag" draggable="true">순서 옮기기</button>';
                 list += '</li>';
 
                 $('.todoList').append(list);
                 document.todo.reset();
+                dragNdrop();
             }
             e.preventDefault();
         });
@@ -158,10 +226,11 @@
                 event.stopPropagation();
             })
             event.stopPropagation();
+
+            $(window).click(function(){
+                $('.todoList li').removeClass('edit');
+            })
         }
-        $(window).click(function(){
-            $('.todoList li').removeClass('edit');
-        })
     </script>
 </body>
 </html>
