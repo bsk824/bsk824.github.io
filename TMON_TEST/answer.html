@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="user-scalable=no, initial-scale=1, width=device-width, height=device-height, minimal-ui">
+<meta name="apple-mobile-web-app-capable" content="no">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>To do list</title>
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/content.css">
+</head>
+<body>
+    <form id="todo" name="todo" class="todoInput">
+        <fieldset>
+            <legend class="hide">할 일 입력 영역</legend>
+            <label for="todoSel" class="hide">중요도 선택</label>
+            <select name="todoSel" id="todoSel" class="todoSel">
+                <option value="0">중요도</option>
+                <option value="very">매우 중요</option>
+                <option value="important">중요</option>
+                <option value="normal">보통</option>
+            </select>
+            <label for="todoText" class="hide">할 일 입력</label>
+            <input type="text" name="todoText" id="todoText" class="todoText" placeholder="할 일을 입력하세요.">
+            <button class="btnAdd">추가</button>
+        </fieldset>
+    </form>
+    <div class="todoFilter">
+        <p class="priorityBtns">
+            <button type="button" class="all active" onclick="priorityFilter('all',$(this));">모두</button>
+            <button type="button" onclick="priorityFilter('very',$(this));">매우 중요</button>
+            <button type="button" onclick="priorityFilter('important',$(this));">중요</button>
+            <button type="button" onclick="priorityFilter('normal',$(this));">보통</button>
+        </p>
+        <p class="completeBtns">
+            <button type="button" class="all active" onclick="priorityFilter('all',$(this));">모두</button>
+            <button type="button" onclick="priorityFilter('finished',$(this));">완료</button>
+            <button type="button" onclick="priorityFilter('unfinished',$(this));">미완료</button>
+        </p>
+    </div>
+    <ul class="todoList all">
+        <li class="very unfinished">
+            <label class="todoCom" onclick="todoCom($(this));">
+                <span class="hide">현재 목록 완료시 체크</span>
+                <input type="checkbox">
+            </label>
+            <span class="todoPriority">
+                중요도 : <em>매우 중요</em>
+                <select>
+                    <option value="very" checked="">매우 중요</option>
+                    <option value="important">중요</option>
+                    <option value="normal">보통</option>
+                </select>
+            </span>
+            <span class="todoDate">추가일 : <b>2016.12.17</b></span>
+            <span class="todoTxt" onclick="todoEdit($(this));">세탁소에서 세탁물 찾아오기</span>
+            <span class="todoEdit">
+                <label for="todoEditInput" class="hide">할 일 수정</label>
+                <input type="text" id="todoEditInput" value="세탁소에서 세탁물 찾아오기">
+                <button type="button">수정</button>
+            </span>
+            <button type="button" class="btnDrag">순서 옮기기</button>
+        </li>
+    </ul>
+
+    <script type="text/javascript" src="js\jquery-1.9.1.min.js"></script>
+    <script>
+         $("#todo").submit(function(e){
+            var today = new Date(),
+                todoSel = document.todo.todoSel,
+                priorityVal = todoSel.value,
+                priorityTxt = todoSel.options[todoSel.selectedIndex].text,
+                todoTxt = document.todo.todoText,
+                todoTxtVal = todoTxt.value,
+                list = "";
+            if (priorityVal == 0) {
+                alert('중요도를 선택 해주십시오');
+                todoSel.focus();
+                return false;
+            } else if (todoTxtVal === "" ) {
+                alert('할 일을 입력 해주십시오.');
+                todoTxt.focus();
+                return false;
+            } else {
+                list += '<li class="'+priorityVal+' unfinished">';
+                list += '    <label class="todoCom" onclick="todoCom($(this));">';
+                list += '        <span class="hide">현재 목록 완료시 체크</span>';
+                list += '        <input type="checkbox">';
+                list += '    </label>';
+                list += '    <span class="todoPriority">';
+                list += '        중요도 : <em>'+priorityTxt+'</em>';
+                list += '        <select>';
+                list += '            <option value="very">매우 중요</option>';
+                list += '            <option value="important">중요</option>';
+                list += '            <option value="normal">보통</option>';
+                list += '        </select>';
+                list += '    </span>';
+                list += '    <span class="todoDate">추가일 : <b>'+today.getFullYear()+'.'+(today.getMonth() + 1)+'.'+today.getDate()+'</b></span>';
+                list += '    <span class="todoTxt" onclick="todoEdit($(this));">'+todoTxtVal+'</span>';
+                list += '    <span class="todoEdit">';
+                list += '        <label for="todoEditInput" class="hide">할 일 수정</label>';
+                list += '        <input type="text" id="todoEditInput" value="'+todoTxtVal+'">';
+                list += '        <button type="button">수정</button>';
+                list += '    </span>';
+                list += '    <button type="button" class="btnDrag">순서 옮기기</button>';
+                list += '</li>';
+
+                $('.todoList').append(list);
+                document.todo.reset();
+            }
+            e.preventDefault();
+        });
+        function priorityFilter(filter,_this) {
+            var $this = _this,
+                todoList = $('.todoList');
+            if (filter === 'all') {
+                if ($this.parent().hasClass('priorityBtns')) {
+                    todoList.removeClass('very important normal');
+                } else if ($this.parent().hasClass('completeBtns')) {
+                    todoList.removeClass('finished unfinished');
+                }
+                todoList.addClass('all');
+                $this.addClass('active').siblings().removeClass('active');
+            } else {
+                todoList.toggleClass(filter).removeClass('all');
+                $this.toggleClass('active');
+                $this.parent().find('.all').removeClass('active');
+            }
+        }
+        function todoCom(_this) {
+            var $this = _this,
+                chkbox = $this.find('input[type="checkbox"]');
+            if (chkbox.is(':checked')) {
+                $this.parent().addClass('finished').removeClass('unfinished');
+                chkbox.prop('checked',true);
+            } else {
+                $this.parent().addClass('unfinished').removeClass('finished');
+                chkbox.prop('checked',false);
+            }
+        }
+        function todoEdit(_this){
+            var editPriority = _this.parent().find('.todoPriority'),
+                editTxt = _this.parent().find('.todoEdit input[type="text"]'),
+                editBtn = _this.parent().find('.todoEdit button');
+
+            _this.parent().addClass('edit');
+
+            editTxt.select();
+
+            editBtn.click(function(){
+                _this.text(editTxt.val());
+                editPriority.find('em').text(editPriority.find('option:checked').text());
+                _this.parent().removeClass('edit very important normal').addClass(editPriority.find('select').val());
+                event.stopPropagation();
+            });
+            _this.parent().click(function(){
+                event.stopPropagation();
+            })
+            event.stopPropagation();
+        }
+        $(window).click(function(){
+            $('.todoList li').removeClass('edit');
+        })
+    </script>
+</body>
+</html>

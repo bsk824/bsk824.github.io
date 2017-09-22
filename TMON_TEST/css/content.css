@@ -1,0 +1,113 @@
+@charset "UTF-8";
+
+body {min-width:320px;}
+
+.hide {position:absolute;z-index:-1;font:0/0 a;}
+.todoInput {
+    position:fixed;
+    top:0;right:0;left:0;
+    height:40px;
+    padding:0 85px 0 70px;
+    background:#fff;
+    box-shadow:0 0 4px 2px rgba(0, 0, 0, 0.1);
+}
+.todoInput .todoSel {
+    position:absolute;
+    top:50%;left:5px;
+    width:60px;
+    transform:translateY(-50%);
+    background:#f8f8f8;
+}
+.todoInput .todoText {
+    width:100%;
+    height:40px;
+}
+.todoInput .btnAdd {
+    position:absolute;
+    top:0;right:0;
+    width:80px;height:40px;
+    background:#ff5000;
+    color:#fff;
+}
+
+.todoFilter {
+    margin-top:40px;
+    padding:5px;
+    background:#f0f0f0;
+}
+.todoFilter button {
+    margin:2px 0;
+    padding:2px 5px;
+    background:#fff;
+    border:1px solid #ccc;
+}
+.todoFilter button.active {
+    color:#fff;
+    background:#ff5000;
+}
+
+.todoList {border-top:1px solid #ccc;}
+.todoList li {
+    position:relative;
+    padding:5px 45px;
+    border-bottom:1px solid #ccc;
+    line-height:1.5;
+}
+.todoList li[data-complete="com"] .todoTxt {text-decoration:line-through;}
+.todoList .todoCom {
+    position:absolute;
+    width:40px;
+    top:0;left:0;bottom:0;
+}
+.todoList .todoCom input[type="checkbox"] {
+    position:absolute;
+    top:50%;left:50%;
+    transform:translate(-50%,-50%);
+}
+.todoList .todoPriority,
+.todoList .todoDate {display:block;color:#aaa;font-size:12px;}
+.todoList .todoPriority {position:relative;}
+.todoList .todoPriority select {display:none;vertical-align:2px;}
+.todoList .todoTxt {color:#000;}
+.todoList .todoEdit {
+    position:relative;
+    display:none;
+    padding-right:45px;
+    margin-top:5px;
+}
+.todoList .todoEdit input[type="text"] {
+    width:100%;
+    height:30px;
+    border:1px solid #ccc;
+    box-sizing:border-box;
+}
+.todoList .todoEdit button {
+    position:absolute;
+    top:0;right:0;
+    width:40px;
+    height:30px;
+    background:#ff5000;
+    color:#fff;
+}
+.todoList li.edit .todoPriority em,
+.todoList li.edit .todoDate,
+.todoList li.edit .todoTxt {display:none;}
+.todoList li.edit .todoPriority select {display:inline-block;}
+.todoList li.edit .todoEdit {display:block;}
+
+.todoList .btnDrag {
+    position:absolute;
+    top:0;right:0;bottom:0;
+    width:40px;
+    background:#c0c0c0;
+    font:0/0 a;
+}
+.todoList li {display:none;}
+.todoList.all li,
+.todoList.very li.very,
+.todoList.important li.important,
+.todoList.normal li.normal,
+.todoList.finished li.finished,
+.todoList.unfinished li.unfinished {display:block;}
+
+.todoList li.finished .todoTxt {text-decoration:line-through;}
