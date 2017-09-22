@@ -76,10 +76,10 @@
                 </select>
             </span>
             <span class="todoDate">추가일 : <b>2016.12.17</b></span>
-            <span class="todoTxt" onclick="todoEdit($(this));">2세탁소에서 세탁물 찾아오기</span>
+            <span class="todoTxt" onclick="todoEdit($(this));">2세탁소에서 세탁물 찾아오기2세탁소에서 세탁물 찾아오기2세탁소에서 세탁물 찾아오기2세탁소에서 세탁물 찾아오기</span>
             <span class="todoEdit">
                 <label for="todoEditInput" class="hide">할 일 수정</label>
-                <input type="text" id="todoEditInput" value="세탁소에서 세탁물 찾아오기">
+                <input type="text" id="todoEditInput" value="2세탁소에서 세탁물 찾아오기2세탁소에서 세탁물 찾아오기2세탁소에서 세탁물 찾아오기2세탁소에서 세탁물 찾아오기">
                 <button type="button">수정</button>
             </span>
             <button type="button" class="btnDrag" draggable="true">순서 옮기기</button>
@@ -112,30 +112,19 @@
     <script>
 
         function dragNdrop() {
-            alert();
             var listHtml = "",
                 listIndex;
-            $('.btnDrag').on('dragstart touchstart', function(){
+            $('.btnDrag').on('dragstart', function(){
                 listHtml = $(this).parent();
                 listIndex = $(this).parent().index();
             });
             $('.todoList li').on({
-                'touchend' : function() {
-                    if ($(this).index() > listIndex) {
-                        $(this).after(listHtml);
-                    } else {
-                        $(this).before(listHtml);
-                    }
-                },
                 'drop' : function(){
                     if ($(this).index() > listIndex) {
                         $(this).after(listHtml);
                     } else {
                         $(this).before(listHtml);
                     }
-                },
-                'touchmove' : function() {
-                    event.preventDefault();
                 },
                 'dragover' : function(){
                     event.preventDefault();
