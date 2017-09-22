@@ -114,17 +114,27 @@
         function dragNdrop() {
             var listHtml = "",
                 listIndex;
-            $('.btnDrag').on('dragstart', function(){
+            $('.btnDrag').on('dragstart touchstart', function(){
                 listHtml = $(this).parent();
                 listIndex = $(this).parent().index();
             });
             $('.todoList li').on({
+                'touchend' : function() {
+                    if ($(this).index() > listIndex) {
+                        $(this).after(listHtml);
+                    } else {
+                        $(this).before(listHtml);
+                    }
+                },
                 'drop' : function(){
                     if ($(this).index() > listIndex) {
                         $(this).after(listHtml);
                     } else {
                         $(this).before(listHtml);
                     }
+                },
+                'touchmove' : function() {
+                    event.preventDefault();
                 },
                 'dragover' : function(){
                     event.preventDefault();
