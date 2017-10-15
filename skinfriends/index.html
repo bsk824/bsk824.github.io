@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes, target-densitydpi=medium-dpi" name="viewport">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="css/default.css" />
+<link rel="stylesheet" type="text/css" href="css/common.css" />
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/ui.js"></script>
+<script>
+    $(document).ready(function() {
+    	$('#fullpage').fullpage({
+            menu: '#gnb',
+    		navigation: true
+        });
+        var pdslide = new Swiper('.pdSection .swiper-container', {
+            prevButton : '.pdSection .swiper-button-prev',
+            nextButton : '.pdSection .swiper-button-next',
+            loop: true
+        });
+        var sfSection = new Swiper('.sfSection .swiper-container', {
+            prevButton : '.sfSection .swiper-button-prev',
+            nextButton : '.sfSection .swiper-button-next',
+            loop: true
+        });
+        var infoSection = new Swiper('.infoSection .swiper-container', {
+            prevButton : '.infoSection .swiper-button-prev',
+            nextButton : '.infoSection .swiper-button-next',
+            loop: true
+        });
+    });
+</script>
+</head>
+
+<body>
+<header class="header">
+    <div class="headerCont">
+        <ul id="gnb">
+            <li data-menuanchor="section0" class="active"><a href="#section0"><img src="images/img_logo.gif" alt="Skin Friends"></a></li>
+        	<li data-menuanchor="section1"><a href="#section1">레시피 앰플</a></li>
+        	<li data-menuanchor="section2"><a href="#section2" class="friend">스&middot;친&middot;소</a></li>
+        	<li data-menuanchor="section3"><a href="#section3">MEDIA</a></li>
+        	<li data-menuanchor="section4"><a href="#section4">SNS</a></li>
+        	<li data-menuanchor="section5"><a href="#section5">회사소개</a></li>
+        </ul>
+        <div class="lang">
+            <a href="#" class="ko">한국어</a>
+            <a href="#" class="zh">中国</a>
+        </div>
+    </div>
+</header>
+<div id="fullpage">
+	<section class="section" data-anchor="section0">
+        <div class="mainContent">
+
+        </div>
+        <div class="mainInfo">
+            <p class="name">COSMETICVENTURES</p>
+            <p>도로명 : 서울시 성북구 화랑로 14길 5 KIST H-1동 942AB호 (하월곡동 39-1)</p>
+            <p class="contact">
+                <span>Tel |  02-544-5080</span>
+                <span>Fax  |  02-544-5077</span>
+                <span>E-mail  |  contactus@cosmeticventures.com</span>
+            </p>
+            <p class="sns">
+                <span>
+                    레시피 앰플
+                    <a href="#" class="insta">인스타그램</a>
+                    <a href="#" class="facebook">페이스북</a>
+                </span>
+                <span>
+                    스친소
+                    <a href="#" class="insta">인스타그램</a>
+                    <a href="#" class="facebook">페이스북</a>
+                </span>
+            </p>
+        </div>
+	</section>
+	<section class="section pdSection" data-anchor="section1">
+        <div class="swiper-container">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide">
+                    <a href="#" style="background:url(images/img_slide_banner.jpg) no-repeat 50% 50%;background-size:cover;"></a>
+                </li>
+                <li class="swiper-slide">
+                    <a href="#" style="background:url(images/img_slide_banner.jpg) no-repeat 50% 50%;background-size:cover;"></a>
+                </li>
+                <li class="swiper-slide">
+                    <a href="#" style="background:url(images/img_slide_banner.jpg) no-repeat 50% 50%;background-size:cover;"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="slide-nav">
+            <button type="button" class="swiper-button-prev"><img src="images/btn_slide_prev.png" alt="이전 배너"></button>
+            <button type="button" class="swiper-button-next"><img src="images/btn_slide_next.png" alt="다음 배너"></button>
+        </div>
+    </section>
+	<section class="section sfSection" data-anchor="section2">
+        <div class="swiper-container">
+            <ul class="swiper-wrapper">
+                <li class="swiper-slide">
+                    <a href="#" style="background:url(images/img_slide2_banner.jpg) no-repeat 50% 50%;background-size:cover;"></a>
+                </li>
+                <li class="swiper-slide">
+                    <a href="#" style="background:url(images/img_slide2_banner.jpg) no-repeat 50% 50%;background-size:cover;"></a>
+                </li>
+                <li class="swiper-slide">
+                    <a href="#" style="background:url(images/img_slide2_banner.jpg) no-repeat 50% 50%;background-size:cover;"></a>
+                </li>
+            </ul>
+        </div>
+        <div class="slide-nav">
+            <button type="button" class="swiper-button-prev"><img src="images/btn_slide_prev.png" alt="이전 배너"></button>
+            <button type="button" class="swiper-button-next"><img src="images/btn_slide_next.png" alt="다음 배너"></button>
+        </div>
+    </section>
+	<section class="section mediaSection" data-anchor="section3">
+        <div class="contentWrap">
+            <h1 class="title">MEDIA</h1>
+            <div class="media">
+                <iframe src="https://www.youtube.com/embed/pxR6cKkPzNo?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <ul class="mediaList">
+                <li>
+                    <a href="#"><img src="images/img_sample_youtube.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="images/img_sample_youtube.jpg" alt=""></a>
+                </li>
+                <li>
+                    <a href="#"><img src="images/img_sample_youtube.jpg" alt=""></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+	<section class="section snsSection" data-anchor="section4">
+        <div class="contentWrap">
+            <h1 class="title">SNS</h1>
+            <p class="txt">SKINFRIENDS의 데일리 드롭 레시피 앰플 킷의 활용법과<br>스친소서비스를 이용하시는 분들의 소식들을 공유합니다.</p>
+            <p class="btn">
+                <button type="button" class="active">스친소</button>
+                <button type="button">레시피앱플</button>
+            </p>
+            <ul class="list">
+                <li>
+                    <a href="#">
+                        <img src="images/img_sample_list.jpg" alt="">
+                        <span class="itemCont">
+                            <span class="inner">
+                                데일리드롭 레시피앱플킷 정말 좋은 제품인듯<br>
+                                <span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span>
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/img_sample_list.jpg" alt="">
+                        <span class="itemCont">
+                            <span class="inner">
+                                데일리드롭 레시피앱플킷 정말 좋은 제품인듯<br>
+                                <span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span>
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/img_sample_list.jpg" alt="">
+                        <span class="itemCont">
+                            <span class="inner">
+                                데일리드롭 레시피앱플킷 정말 좋은 제품인듯<br>
+                                <span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span>
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/img_sample_list.jpg" alt="">
+                        <span class="itemCont">
+                            <span class="inner">
+                                데일리드롭 레시피앱플킷 정말 좋은 제품인듯<br>
+                                <span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span>
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/img_sample_list.jpg" alt="">
+                        <span class="itemCont">
+                            <span class="inner">
+                                데일리드롭 레시피앱플킷 정말 좋은 제품인듯<br>
+                                <span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span>
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/img_sample_list.jpg" alt="">
+                        <span class="itemCont">
+                            <span class="inner">
+                                데일리드롭 레시피앱플킷 정말 좋은 제품인듯<br>
+                                <span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span>
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/img_sample_list.jpg" alt="">
+                        <span class="itemCont">
+                            <span class="inner">
+                                데일리드롭 레시피앱플킷 정말 좋은 제품인듯<br>
+                                <span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span><span>#스킨프랜즈</span>
+                            </span>
+                        </span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="images/img_sample_list.jpg" alt="">
+                        <span class="itemCont">
+                            <span class="inner">
+                                데일리드롭 레시피앱플킷 정말 좋은 제품인듯<br>
+                                #스킨프랜즈 #레시피 #앰플#스킨프랜즈 #레시피 #앰플#스킨프랜즈 #레시피 #앰플
+                            </span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </section>
+	<section class="section infoSection" data-anchor="section5">
+        <div class="contentWrap">
+            <h1 class="title">COSMETIC VENTURES</h1>
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide info01">
+                        <p class="txt">개별 소비자의 피부 타입을 잘 분류하고 피부 타입에 맞는 화장품을 사용할 수 있도록<br>추천, 생산하는 것이 ㈜코스메틱벤처스가 하는 일입니다.</p>
+                        <p class="txt2">피부 치료 임상 경험을 통해,<br> “나에게 맞는 화장품이 가장 좋은 화장품”이 라는<br> 확신을 얻었습니다.</p>
+                        <ul class="list">
+                            <li>
+                                <img src="images/img_info01_01.jpg" alt="">
+                                피부치료를 통한<br>
+                                <strong>임상경험</strong>
+                            </li>
+                            <li>
+                                <img src="images/img_info01_02.jpg" alt="">
+                                24가지 피부분포도 중<br>
+                                한국인에 해당되는<br>
+                                <strong>임상경험</strong>
+                            </li>
+                            <li>
+                                <img src="images/img_info01_03.jpg" alt="">
+                                내 피부타입 그리고<br>
+                                <strong>나에게 맞는 화장품</strong>
+                            </li>
+                            <li>
+                                <img src="images/img_info01_04.jpg" alt="">
+                                스킨 친구들이 모여<br>자유롭게<br>
+                                <strong>소통하는 공간!!</strong>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="swiper-slide info02">
+                        <p class="txt">개별 소비자의 피부 타입을 잘 분류하고 피부 타입에 맞는 화장품을 사용할 수 있도록<br>추천, 생산하는 것이 ㈜코스메틱벤처스가 하는 일입니다.</p>
+                        <ul class="list">
+                            <li>
+                                <img src="images/img_info02_01.jpg" alt="">
+                                <strong>데일리 드롭 레시피 앰플</strong><br>
+                                모든 상황에 대처할 수 있도록 섞어 쓰는 신개념 DIY 앰플<br>
+                                <span>#촉촉진정</span> <span>#산뜻모공</span> <span>#청순미백</span> <span>#생기충전</span> <span>#탱글탄력</span>
+                            </li>
+                            <li>
+                                <img src="images/img_info02_02.jpg" alt="">
+                                <strong>스&middot;친&middot;소</strong><br>
+                                모바일속 리얼 화장대<br>
+                                <span>#16가지 피부타입별 품평</span> <span>#같은 피부 타입</span> <span>#스친의 리얼리뷰</span> <span>#찰떡궁합 화장품</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="swiper-slide info03">
+                        <div class="">
+                            <p>피부치료만 15년, 화장품 제조 10년을 해온 한의사로서 현재도 한의원을 운영중입니다. 피부미용의학 / 한의학 / 동아시아 / 화장품을 키워드로 동아시아 한자 문명권 사람들의 피부와 기초화장품을 연구하는 ‘아시아피부연구소’ 의 소장이기도 합니다.<br>
+                            좋은 화장품은 ‘현재 내피부에 맞느냐?’ 라는 적정성의 문제입니다. 자신의 피부타입을 정확히 파악하고, 그것에 맞는 화장품을 써야 합니다. (주)코스메틱벤처스에서는 손쉽게 정확한 피부타입을 분류하고, 그것에 잘 맞는 화장품을 추천 및 생산합니다. </p>
+                            <p>그리고 전문분야인 한의학과 동아시아 피부에 대한 연구를 바탕으로 한국을 넘어서 중국에서 한국화장품의 열기를 이어가겠습니다.</p>
+                        </div>
+                        <ul class="list">
+                            <li>
+                                <img src="images/img_info02_01.jpg" alt="">
+                                <strong>데일리 드롭 레시피 앰플</strong><br>
+                                모든 상황에 대처할 수 있도록 섞어 쓰는 신개념 DIY 앰플<br>
+                                <span>#촉촉진정</span> <span>#산뜻모공</span> <span>#청순미백</span> <span>#생기충전</span> <span>#탱글탄력</span>
+                            </li>
+                            <li>
+                                <img src="images/img_info02_02.jpg" alt="">
+                                <strong>스&middot;친&middot;소</strong><br>
+                                모바일속 리얼 화장대<br>
+                                <span>#16가지 피부타입별 품평</span> <span>#같은 피부 타입</span> <span>#스친의 리얼리뷰</span> <span>#찰떡궁합 화장품</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slide-nav">
+            <button type="button" class="swiper-button-prev"><img src="images/btn_slide_prev.png" alt="이전 배너"></button>
+            <button type="button" class="swiper-button-next"><img src="images/btn_slide_next.png" alt="다음 배너"></button>
+        </div>
+	</section>
+</div>
+
+</body>
+</html>

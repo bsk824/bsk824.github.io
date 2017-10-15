@@ -48,7 +48,7 @@
             <span class="todoPriority">
                 중요도 : <em>매우 중요</em>
                 <select>
-                    <option value="very" checked="">매우 중요</option>
+                    <option value="very">매우 중요</option>
                     <option value="important">중요</option>
                     <option value="normal">보통</option>
                 </select>
@@ -57,7 +57,7 @@
             <span class="todoTxt" onclick="todoEdit($(this));">1세탁소에서 세탁물 찾아오기</span>
             <span class="todoEdit">
                 <label for="todoEditInput" class="hide">할 일 수정</label>
-                <input type="text" id="todoEditInput" value="세탁소에서 세탁물 찾아오기">
+                <input type="text" id="todoEditInput" value="1세탁소에서 세탁물 찾아오기">
                 <button type="button">수정</button>
             </span>
             <button type="button" class="btnDrag" draggable="true">순서 옮기기</button>
@@ -70,7 +70,7 @@
             <span class="todoPriority">
                 중요도 : <em>중요</em>
                 <select>
-                    <option value="very" checked="">매우 중요</option>
+                    <option value="very">매우 중요</option>
                     <option value="important">중요</option>
                     <option value="normal">보통</option>
                 </select>
@@ -92,7 +92,7 @@
             <span class="todoPriority">
                 중요도 : <em>보통</em>
                 <select>
-                    <option value="very" checked="">매우 중요</option>
+                    <option value="very">매우 중요</option>
                     <option value="important">중요</option>
                     <option value="normal">보통</option>
                 </select>
@@ -101,7 +101,29 @@
             <span class="todoTxt" onclick="todoEdit($(this));">3세탁소에서 세탁물 찾아오기</span>
             <span class="todoEdit">
                 <label for="todoEditInput" class="hide">할 일 수정</label>
-                <input type="text" id="todoEditInput" value="세탁소에서 세탁물 찾아오기">
+                <input type="text" id="todoEditInput" value="3세탁소에서 세탁물 찾아오기">
+                <button type="button">수정</button>
+            </span>
+            <button type="button" class="btnDrag" draggable="true">순서 옮기기</button>
+        </li>
+        <li class="important finished" draggable="true">
+            <label class="todoCom" onclick="todoCom($(this));">
+                <span class="hide">현재 목록 완료시 체크</span>
+                <input type="checkbox" checked>
+            </label>
+            <span class="todoPriority">
+                중요도 : <em>중요</em>
+                <select>
+                    <option value="very">매우 중요</option>
+                    <option value="important">중요</option>
+                    <option value="normal">보통</option>
+                </select>
+            </span>
+            <span class="todoDate">추가일 : <b>2016.12.17</b></span>
+            <span class="todoTxt" onclick="todoEdit($(this));">4세탁소에서 세탁물 찾아오기</span>
+            <span class="todoEdit">
+                <label for="todoEditInput" class="hide">할 일 수정</label>
+                <input type="text" id="todoEditInput" value="4세탁소에서 세탁물 찾아오기">
                 <button type="button">수정</button>
             </span>
             <button type="button" class="btnDrag" draggable="true">순서 옮기기</button>
@@ -225,7 +247,6 @@
             _this.parent().click(function(){
                 event.stopPropagation();
             })
-            event.stopPropagation();
 
             $(window).click(function(){
                 $('.todoList li').removeClass('edit');
