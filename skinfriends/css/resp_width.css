@@ -40,7 +40,8 @@
 	.footer .sns a {width:2.5rem;height:2.5rem;background-size:cover!important;}
 
 	.mainContent {position:static;}
-	.pdSection .swiper-slide a, .sfSection .swiper-slide a {min-height:600px;}
+	.mainContent img,
+	.pdSection .swiper-slide a img, .sfSection .swiper-slide a img {display:block;}
 	.slide-nav {position:absolute;top:auto;bottom:0;left:0;right:0;padding:1rem 1.5rem;}
 	.slide-nav:after {content:"";position:absolute;top:0;right:0;bottom:0;left:0;background:#fff;opacity:.5;}
 	.slide-nav button {position:relative;z-index:2;}
