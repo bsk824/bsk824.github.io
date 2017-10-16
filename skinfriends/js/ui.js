@@ -46,7 +46,7 @@ if (winW < 768 && respChk !== "mo") {
 	$(function(){
 		$.fn.fullpage.destroy('all');
 	});
-	$('.mainContent').css('height','calc('+$(window).height()+'px - 5.6rem)');
+	$('.mainContent').css('height',$(window).height());
 } else if (winW > 768 && respChk !== "pc") {
 	respChk = "pc";
 	$('#fullpage').fullpage({
@@ -62,7 +62,7 @@ $(window).resize(function(){
 	if (winW < 768 && respChk !== "mo") {
 		respChk = "mo";
 		$.fn.fullpage.destroy('all');
-		$('.mainContent').css('height','calc('+$(window).height()+'px - 5.6rem)');
+		$('.mainContent').css('height',$(window).height());
 	} else if (winW > 768 && respChk !== "pc") {
 		respChk = "pc";
 		$('#fullpage').fullpage({
