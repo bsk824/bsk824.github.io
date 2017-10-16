@@ -21,10 +21,10 @@
 .header .btnMenu {display:none;}
 .header #gnb li {
 	display:inline-block;
-	margin:40px 0 0 45px;
+	margin:40px 0 0 30px;
 }
 .header #gnb li a {
-	font-size:25px;
+	font-size:22px;
 	font-weight:bold;
 	color:#000;
 }
@@ -80,44 +80,12 @@
 
 .mainContent {
 	position:absolute;
-	top:40px;bottom:200px;
+	top:0;bottom:0;
 	left:0;right:0;
 	background:url(../images/img_main_banner.jpg) no-repeat 50% 50%;
 	background-size:cover;
 }
-
-.mainInfo {
-	position:absolute;
-	right:0;bottom:0;left:0;
-	height:200px;
-	text-align:center;
-	background:#292c33;
-	color:#818181;
-}
-.mainInfo .name {
-	padding:30px 0 10px;
-	font-weight:bold;
-	font-size:16px;
-	color:#a7a7a7;
-}
-.mainInfo .contact span {display:inline-block;margin:0 10px;}
-.mainInfo .sns {
-	margin:20px 0 0;
-	color:#a7a7a7;
-	font-size:18px;
-	font-weight:bold;
-}
-.mainInfo .sns span {margin:0 40px;}
-.mainInfo .sns a {
-	display:inline-block;
-	width:42px;height:42px;
-	margin:0 0 0 5px;
-	vertical-align:middle;
-	font:0/0 a;
-}
-.mainInfo .sns .insta {background:url(../images/icon_insta.gif) no-repeat;}
-.mainInfo .sns .facebook {background:url(../images/icon_facebook.gif) no-repeat;}
-
+.moHeader {display:none;}
 .swiper-container {
 	position:relative;
 	width:100%;height:100%;
@@ -355,9 +323,11 @@
 	position:absolute;
 	top:0;left:0;
 }
-.infoSection .mapWrap {
+
+.mapSection {}
+.mapSection .mapWrap {
 	height:420px;
-	margin:75px 130px 0;
+	margin:0 130px;
 	background:#fff;
 }
 .root_daum_roughmap,
@@ -366,7 +336,7 @@
 	height:100%!important;
 }
 
-.mapInfo {margin:50px 130px 0;}
+.mapInfo {margin:25px 130px 0;}
 .mapInfo table {width:100%;text-align:left;font-size:18px;}
 .mapInfo th {
 	padding:2px 0 2px 25px;
@@ -374,3 +344,36 @@
 	vertical-align:top;
 }
 .mapInfo td {padding:2px 0;color:#818181;}
+
+
+.footer {
+	position:absolute;
+	right:0;bottom:0;left:0;
+	height:200px;
+	text-align:center;
+	background:#292c33;
+	color:#818181;
+}
+.footer .name {
+	padding:30px 0 10px;
+	font-weight:bold;
+	font-size:16px;
+	color:#a7a7a7;
+}
+.footer .contact span {display:inline-block;margin:0 10px;}
+.footer .sns {
+	margin:20px 0 0;
+	color:#a7a7a7;
+	font-size:18px;
+	font-weight:bold;
+}
+.footer .sns span {margin:0 40px;}
+.footer .sns a {
+	display:inline-block;
+	width:42px;height:42px;
+	margin:0 0 0 5px;
+	vertical-align:middle;
+	font:0/0 a;
+}
+.footer .sns .insta {background:url(../images/icon_insta.gif) no-repeat;}
+.footer .sns .facebook {background:url(../images/icon_facebook.gif) no-repeat;}
