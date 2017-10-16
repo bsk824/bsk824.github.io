@@ -17,7 +17,7 @@
 }
 @media all and (max-width:767px) {
 	html, body {font-size:62.5%;}
-	body {padding-top:5.6rem;}
+	body {padding-top:56px;}
 	.header {height:56px;}
 	.header h1 {position:static;padding-top:15px;text-align:center;}
 	.header h1 img {width:156px;margin-left:20px;}
