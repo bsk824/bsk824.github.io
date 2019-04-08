@@ -1,30 +1,56 @@
 <script>
-$(function(){
-	$.ajax({
-		type : "get"
-		,dataType: "json"
-		,url: "json/menu.json"
-		,success: function(data){
-			var $html = listCreate(data);
-			$('#contents').append('<ul>'+$html+'</ul>');
+$.ajax({
+	type : "get"
+	,dataType: "json"
+	,url: "json/menu.json"
+	,success: function(data){
+		var $html = listCreate(data);
+		$('#contents').append('<ul>'+$html+'</ul>');
+		save(data);
+	}
+});
+function listCreate(jdata){
+
+	var menulist = "";
+
+	$.each(jdata, function(idx, item){
+		var name = item.name
+			,href = item.href;
+		if (item.menu2dep) {
+			var menu2 = listCreate(item.menu2dep);
+			menulist += "<li><a href="+href+">"+name+"</a><ul>"+menu2+"</ul></li>";
+		} else {
+			menulist += "<li><a href="+href+">"+name+"</a></li>";
 		}
 	});
-	function listCreate(jdata){
 
-		var menulist = "";
-
-		$.each(jdata, function(idx, item){
-			var name = item.name
-				,href = item.href;
-			if (item.menu2dep) {
-				var menu2 = listCreate(item.menu2dep);
-				menulist += "<li><a href="+href+">"+name+"</a><ul>"+menu2+"</ul></li>";
-			} else {
-				menulist += "<li><a href="+href+">"+name+"</a></li>";
+	return menulist;
+}
+$.fn.serializeObject = function() {
+	var obj = null;
+	try {
+		if(this[0].tagName && this[0].tagName.toUpperCase() == "FORM") {
+			var arr = this.serializeArray();
+			if(arr) {
+				obj = {};
+				$.each(arr, function() {
+					obj[this.name] = this.value;
+				});
 			}
-		});
-        
-		return menulist;
-	}
-})
+		}
+	} catch(e) {
+		alert(e.message);
+	} finally {}
+	return obj;
+}
+function save(data) {
+	console.log(JSON.stringify(data));
+	console.log($("#form").serializeObject());
+}
 </script>
+
+<form id="form">
+	<input type="text" name="name">
+	<input type="text" name="href">
+	<button type="button" onclick="save()">저장</button>
+</form>
