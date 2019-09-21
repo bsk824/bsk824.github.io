@@ -4,85 +4,104 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
-	<link rel="stylesheet" type="text/css" href="resource/css/common.css">
+	<title>이벤트</title>
+	<link rel="stylesheet" type="text/css" href="resource/css/style.css">
 </head>
 <body>
 
 	<div id="wrap">
-		<div id="header">
-			<h1><a href="#"><img src="" alt="신한생명"></a></h1>
-			<p>＊본 이벤트는 다이소몰과 무관합니다.</p>
-		</div>
 		<div class="contWrap">
-			<div>
-				<div>
-					<img src="" alt="신한생명 상담신청 이벤트 - 참여고객 전원 할인쿠폰 증정 2,000원 쿠폰">
+			<div class="topWrap">
+				<h1 class="logo"><a href="#"><img src="resource/images/logo.png" alt="신한생명"></a></h1>
+				<p class="txt">＊본 이벤트는 다이소몰과 무관합니다.</p>
+			</div>
+			<div class="evtTop">
+				<div class="img">
+					<img src="resource/images/img1.png" alt="신한생명 상담신청 이벤트 - 참여고객 전원 할인쿠폰 증정 2,000원 쿠폰">
 				</div>
-				<div>
-					<p>* 참여연령 : 28세 ~ 55세 (1인 1회) *</p>
+				<div class="input">
+					<p class="tit">* 참여연령 : 28세~55세(1인 1회) *</p>
 
 					<table>
 						<caption>참여 정보 입력</caption>
-						<tr>
-							<th scope="row">성명/성별</th>
-							<td>
-								<input type="text" class="inputTxt">
-								<label><input type="radio" name="gender"> 남</label>
-								<label><input type="radio" name="gender"> 여</label>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">생년월일</th>
-							<td>
-								<input type="text" class="inputTxt">
-								<span>(예시:920301)</span>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row">휴대전화번호</th>
-							<td>
-								<div>
-									<select title="휴대전화번호 앞자리 선택">
+						<colgroup>
+							<col style="width: 98px;">
+							<col>
+						</colgroup>
+						<tbody>
+							<tr>
+								<th scope="row">성명/성별</th>
+								<td>
+									<input type="text" class="inputTxt" style="width: 100px;">
+									<span class="genderSel">
+										<label><input type="radio" name="gender"> 남</label>
+										<label><input type="radio" name="gender"> 여</label>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">생년월일</th>
+								<td>
+									<input type="text" class="inputTxt" style="width: 100px;">
+									<span class="helpTxt">(예시 : 920301)</span>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row">휴대전화번호</th>
+								<td>
+									<select title="휴대전화번호 앞자리 선택" style="width: 70px;">
 										<option value="">010</option>
 									</select>
 									-
-									<input type="text" class="inputTxt" title="휴대전화번호 두번째자리 입력">
+									<input type="text" class="inputTxt" title="휴대전화번호 두번째자리 입력" style="width: 70px;">
 									-
-									<input type="text" class="inputTxt" title="휴대전화번호 두번째자리 입력">
-									<button type="button"><img src="" alt="인증번호받기"></button>
-								</div>
-								<div>
-									<input type="text" class="inputTxt">
-									<button type="button"><img src="" alt="인증번호 확인"></button>
-									<button type="button"><img src="" alt="재전송"></button>
-								</div>
-							</td>
-						</tr>
+									<input type="text" class="inputTxt" title="휴대전화번호 두번째자리 입력" style="width: 70px;">
+									<button type="button"><img src="resource/images/btn2.png" alt="인증번호받기"></button>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row" class="hide">인증번호</th>
+								<td>
+									<input type="text" class="inputTxt" title="인증번호 입력" style="width: 100px;">
+									<button type="button"><img src="resource/images/btn3.png" alt="인증번호 확인"></button>
+									<button type="button"><img src="resource/images/btn4.png" alt="재전송"></button>
+								</td>
+							</tr>
+						</tbody>
 					</table>
 
-					<p><label class="allChk"><input type="checkbox"> 전체동의</label></p>
-					<p><label class="allChk"><input type="checkbox"> [필수] <strong>하단</strong>의 개인정보 수집 및 이용 내용을 확인하고 동의</label></p>
-					<p><label class="allChk"><input type="checkbox"> [필수] <strong>하단</strong>의 개인정보 제3자 제공(유상) 내용을 확인하고 동의</label></p>
-					<p><label class="allChk"><input type="checkbox"> [필수] <strong>하단</strong>의 개인정보 처리위탁 내용을 확인하고 동의</label></p>
+					<div class="inputBot">
+						<div class="agreeChk">
+							<p><label class="allChk"><input type="checkbox"> 전체동의</label></p>
+							<p><label><input type="checkbox"> <b>[필수]</b> <strong class="ftColor1">하단</strong>의 개인정보 수집 및 이용 내용을 확인하고 동의</label></p>
+							<p><label><input type="checkbox"> <b>[필수]</b> <strong class="ftColor1">하단</strong>의 개인정보 제3자 제공(유상) 내용을 확인하고 동의</label></p>
+							<p><label><input type="checkbox"> <b>[필수]</b> <strong class="ftColor1">하단</strong>의 개인정보 처리위탁 내용을 확인하고 동의</label></p>
+						</div>
 
-					<div>
-						<button type="button"><img src="" alt="할인쿠폰 바로받기"></button>
-					</div>
+						<div>
+							<button type="button"><img src="resource/images/btn1.png" alt="할인쿠폰 바로받기"></button>
+						</div>
 					
-					<p>※ 참여중단 시 입력하신 정보는 저장되지 않으며, 타인의 개인정보 도용 시 형사상 처벌을 받을 수 있습니다.</p>
+						<p class="txt">※ 참여중단 시 입력하신 정보는 저장되지 않으며, 타인의 개인정보 도용 시 형사상 처벌을 받을 수 있습니다.</p>
+					</div>
 				</div>
 			</div>
-			<div>
-				<p>※ 이벤트문의 및 동의철회: 080.220.3210 ( 무료 /평일 09시~18시)</p>
-				<p>※ 상기 동의를 거부할 권리가 있으나, 본 경품 이벤트는 신한생명 제휴이벤트로 마케팅 활용목적에 필요한 필수 동의사항(개인정보 수집∙이용, 개인정보 제3자 제공(유상), 개인정보 처리위탁)에 모두 동의하지 않는 경우 이벤트 참여가 불가함을 알려드립니다.</p>
+			<div class="midTxt">
+				<p class="txt1">※ 이벤트문의 및 동의철회: 080.220.3210 ( 무료 /평일 09시~18시)</p>
+				<p class="txt2">※ 상기 동의를 거부할 권리가 있으나, 본 경품 이벤트는 신한생명 제휴이벤트로 마케팅 활용목적에 필요한 필수 동의사항(개인정보 수집∙이용, 개인정보 제3자 제공(유상), 개인정보 처리위탁)에 모두 동의하지 않는 경우 이벤트 참여가 불가함을 알려드립니다.</p>
 			</div>
-			<div>
+			<div class="termsWrap">
 
-				<div>
-					<div>
+				<div class="leftWrap">
+					<div class="box">
 						<h2>[필수] 개인정보 수집 및 이용</h2>
-						<table>
+						<table class="table">
+							<colgroup>
+								<col style="width: 80px;">
+								<col style="width: 150px;">
+								<col style="width: 150px;">
+								<col>
+							</colgroup>
 							<caption>개인정보 수집 및 이용 항목</caption>
 							<thead>
 								<tr>
@@ -92,15 +111,15 @@
 									<th scope="col">개인정보 보유<br>및 이용기간</th>
 								</tr>
 								<tr>
-									<td rowspan="3">위버스<br>커뮤니<br>케이션즈㈜</td>
+									<td rowspan="3" class="center">위버스<br>커뮤니<br>케이션즈㈜</td>
 									<td>본인식별확인</td>
 									<td>성명, 생년월일, 성별</td>
-									<td>본인식별 완료 후<br>별도저장 없음</td>
+									<td class="center">본인식별 완료 후<br>별도저장 없음</td>
 								</tr>
 								<tr>
-									<td>문자, 전화 안내<br>: 이벤트 참여확인,<br> 고객민원처리, <br> 경품발송, 인증번호발송</td>
+									<td>문자, 전화 안내<br>: 이벤트 참여확인,<br> &nbsp;&nbsp;고객민원처리, <br> &nbsp;&nbsp;경품발송, 인증번호발송</td>
 									<td>성명, 생년월일, 성별,<br> 휴대전화번호 </td>
-									<td rowspan="2">개인정보 수집 및<br>이용에 동의한<br>날로부터 1년간<br>(고객동의 철회시<br>지체없이 파기)</td>
+									<td rowspan="2" class="center">개인정보 수집 및<br>이용에 동의한<br>날로부터 1년간<br>(고객동의 철회시<br>지체없이 파기)</td>
 								</tr>
 								<tr>
 									<td>공통활용정보</td>
@@ -130,16 +149,20 @@
 							<li>본 이벤트는 진행사 사정에 따라 사전고지 없이 변경되거나 종료될 수 있습니다.</li>
 							<li>입력하신 정보가 경품을 목적으로 한 부정참여 정보로 확인 시 이벤트 참여 및 경품지급에<br> 제한을 받을 수 있습니다.</li>
 						</ul>
-						<a href="#"><img src="" alt="경품지급정책"></a>
+						<a href="#" class="moreLink">경품지급정책</a>
 					</div>
 				</div>
 
-				<div>
+				<div class="rightWrap">
 
 					<div>
 						<h2>[필수] 개인정보 제3자 제공(유상)</h2>
-						<table>
+						<table class="table">
 							<caption>개인정보 제3자 제공 항목</caption>
+							<colgroup>
+								<col style="width: 160px;">
+								<col>
+							</colgroup>
 							<tbody>
 								<tr>
 									<th scope="row">개인정보 제공받는 자</th>
@@ -159,7 +182,7 @@
 								</tr>
 							</tbody>
 						</table>
-						<a href="#"><img src="" alt="개인정보처리방침"></a>
+						<a href="#" class="moreLink">개인정보처리방침</a>
 					</div>
 
 					<div>

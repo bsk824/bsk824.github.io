@@ -1,9 +1,9 @@
 @charset "utf-8";
 
 /* default */
-* {margin:0;padding:0;}
+* {margin:0;padding:0;box-sizing:border-box;}
 html {height:100%;font-size:62.5%;}
-body {height:100%;color:#333;font:14px/1.5 '맑은 고딕', '돋움', sans-serif;-webkit-text-size-adjust:none;word-break:keep-all;}
+body {height:100%;color:#444;font:14px/1.5 '맑은 고딕', '돋움', sans-serif;-webkit-text-size-adjust:none;word-break:keep-all;letter-spacing: -.06em;}
 a {color:inherit;text-decoration:none;}
 li {list-style:none;}
 table {width:100%;border-collapse:collapse;border:0;table-layout:fixed;}
@@ -16,3 +16,63 @@ legend, caption, .hidden {position:absolute;z-index:-1;font:0/0 a;}
 address, em {font-style:normal;}
 button {overflow:visible;cursor:pointer;background:none;border:0;border-radius:0;}
 button::-moz-focus-inner {padding:0;border:0;}
+select, .inputTxt {height: 28px; padding: 0 5px; border: 1px solid #a7a7a5; vertical-align: middle;}
+input[type="radio"], input[type="checkbox"] {vertical-align: -1px;}
+
+
+.table th, .table td {
+	padding: 5px;
+	border: 1px solid #bdbdbd;
+	line-height: 1.3;
+}
+.table th {
+	font-size: 16px;
+	letter-spacing: -1.5px;
+	background: #f2f2f2;
+}
+.table tbody th {
+	padding-left: 10px;
+	text-align: left;
+}
+.table td {
+	font-size: 13px;
+}
+.table .center {text-align: center;}
+.table .right {text-align: right;}
+.table .left {text-align: left;}
+
+
+.evtTop .ftColor1 {color: #ff0101;}
+
+.topWrap {position: relative; height: 44px;}
+.topWrap .logo {position: absolute; top: 12px; right:0;}
+.topWrap .txt {padding-top: 18px; font-weight: bold; font-size: 13px;}
+.contWrap {width: 1002px; margin: 0 auto;}
+.evtTop {width: 100%; overflow: hidden;}
+.evtTop .img {float: left; width: 50%;}
+.evtTop .input {float: left; width: 50%; height: 504px; border: 1px solid #c3c3c3;}
+.evtTop .input .tit {margin: 30px 0 22px;font-weight: bold; font-size: 20px; text-align: center;}
+.evtTop .input table {margin-left: 48px;}
+.evtTop .input th {width: 98px; color: #222; font-size: 13px; text-align: left;}
+.evtTop .input th.hide {font-size: 0;}
+.evtTop .input th.hide:before {display: none;}
+.evtTop .input th:before {content:""; display: inline-block; margin-right: 5px; border: 5px solid transparent; border-left: 6px solid #000;}
+.evtTop .input td {padding: 8px 0;}
+.evtTop .input .genderSel {display: inline-block; vertical-align: middle;}
+.evtTop .input .genderSel label {margin-left: 10px; font-size: 18px;}
+.evtTop .input .genderSel label input {vertical-align: 0;}
+.evtTop .input .helpTxt {margin-left: 10px; font-size: 15px;}
+.evtTop .inputBot {margin: 20px 0 0; text-align: center;}
+.evtTop .inputBot .agreeChk {display: inline-block; margin: 0 0 25px; text-align: left; font-size: 12px;}
+.evtTop .inputBot .agreeChk .allChk {font-size: 16px; font-weight: bold;}
+.evtTop .inputBot .agreeChk input {vertical-align: middle;}
+.evtTop .inputBot .txt {margin: 35px 0 0; font-size: 10px;}
+
+.midTxt {padding: 20px 0 15px;}
+.midTxt .txt1 {font-weight: bold; font-size: 16px;}
+.midTxt .txt2 {color: #f00; font-size: 12px;}
+
+.termsWrap {}
+.termsWrap:after {content:""; display: block;}
+.termsWrap .leftWrap {float: left; width: 496px;}
+.termsWrap .rightWrap {float: right; width: 496px;}
