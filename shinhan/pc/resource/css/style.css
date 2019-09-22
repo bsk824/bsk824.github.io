@@ -20,29 +20,18 @@ select, .inputTxt {height: 28px; padding: 0 5px; border: 1px solid #a7a7a5; vert
 input[type="radio"], input[type="checkbox"] {vertical-align: -1px;}
 
 
-.table th, .table td {
-	padding: 5px;
-	border: 1px solid #bdbdbd;
-	line-height: 1.3;
-}
-.table th {
-	font-size: 16px;
-	letter-spacing: -1.5px;
-	background: #f2f2f2;
-}
-.table tbody th {
-	padding-left: 10px;
-	text-align: left;
-}
-.table td {
-	font-size: 13px;
-}
+.table {border-right: 1px solid #bdbdbd; border-bottom: 1px solid #bdbdbd;}
+.table th, .table td {padding: 5px; border-top: 1px solid #bdbdbd; border-left: 1px solid #bdbdbd; line-height: 1.3;}
+.table th {font-size: 15px;	letter-spacing: -2px; background: #f2f2f2;}
+.table tbody th {padding-left: 10px; text-align: left;}
+.table td {font-size: 12px;}
+.table .bTxt {font-size: 15px; letter-spacing: -2px; font-weight: bold;}
 .table .center {text-align: center;}
 .table .right {text-align: right;}
 .table .left {text-align: left;}
+.table .pdg {padding: 11px 5px;}
 
-
-.evtTop .ftColor1 {color: #ff0101;}
+.ftColor1 {color: #ff0101;}
 
 .topWrap {position: relative; height: 44px;}
 .topWrap .logo {position: absolute; top: 12px; right:0;}
@@ -60,19 +49,82 @@ input[type="radio"], input[type="checkbox"] {vertical-align: -1px;}
 .evtTop .input td {padding: 8px 0;}
 .evtTop .input .genderSel {display: inline-block; vertical-align: middle;}
 .evtTop .input .genderSel label {margin-left: 10px; font-size: 18px;}
-.evtTop .input .genderSel label input {vertical-align: 0;}
+.evtTop .input .genderSel label input {vertical-align: -1px;}
 .evtTop .input .helpTxt {margin-left: 10px; font-size: 15px;}
 .evtTop .inputBot {margin: 20px 0 0; text-align: center;}
 .evtTop .inputBot .agreeChk {display: inline-block; margin: 0 0 25px; text-align: left; font-size: 12px;}
 .evtTop .inputBot .agreeChk .allChk {font-size: 16px; font-weight: bold;}
 .evtTop .inputBot .agreeChk input {vertical-align: middle;}
+.evtTop .inputBot .agreeChk .ftColor1 {text-decoration: underline;}
 .evtTop .inputBot .txt {margin: 35px 0 0; font-size: 10px;}
 
-.midTxt {padding: 20px 0 15px;}
+.midTxt {padding: 20px 0 0;}
 .midTxt .txt1 {font-weight: bold; font-size: 16px;}
 .midTxt .txt2 {color: #f00; font-size: 12px;}
 
-.termsWrap {}
-.termsWrap:after {content:""; display: block;}
+.termsWrap:after {content:""; display: block; clear: both;}
 .termsWrap .leftWrap {float: left; width: 496px;}
 .termsWrap .rightWrap {float: right; width: 496px;}
+
+.box {position: relative;}
+.boxTitle {margin: 10px 0 3px; font-size: 18px;}
+.boxTitle span {display: inline-block; padding: 0 10px; background: #727272; color: #fff; font-weight: normal;}
+.boxLink {position: absolute; top: 0; right: 0; padding: 0 5px; line-height: 26px; background: #727272; color: #fff; font-size: 12px; font-weight: bold;}
+.boxLink:after {content: ""; margin-left: 5px; border: 5px solid transparent; border-left: 5px solid #fff; border-right: 0; font-size: 0; vertical-align: 4px;}
+.lineBox {position: relative; margin: 6px 0 0; padding: 14px 10px; border: 1px solid #bdbdbd;}
+.lineBoxTitle {margin: 0 0 5px; font-size: 13px;} 
+.arwList > li {position: relative; padding-left: 9px; font-size: 12px;}
+.arwList > li:after {content: ""; position: absolute; top: 5px; left:0; border: 3px solid transparent; border-left: 4px solid #2b2b2b; border-right: 0; font-size: 0; }
+.bulList > li {position: relative; padding-left: 5px; font-size: 12px;}
+.bulList > li:after {content: ""; position: absolute; top: 8px; left:0; width: 2px; height: 2px; background: #222;}
+.moreLink {position: absolute; top: 7px; right: 5px; padding: 4px 8px; background: #929292; border-radius: 3px; color: #fff; font-size: 11px;}
+.moreLink:after {content: ""; margin-left: 5px; border: 5px solid transparent; border-left: 5px solid #fff; border-right: 0; font-size: 0; vertical-align: 4px;}
+.lineBox .txt {margin-top: 15px; font-size: 12px;}
+
+.relCorp {line-height: 40px; text-align: right;}
+.relCorp img {vertical-align: middle;}
+
+#footer {padding: 12px 0; border-top: 2px solid #a6a6a6; font-size: 12px; font-weight: bold; text-align: center;}
+
+.surveyTop {background:url('../images/bg.png') repeat-x;}
+.surveyTop .inner {position: relative; width: 944px; margin: 0 auto;}
+.surveyTop .surveyInput {position: absolute; top: 155px; right: 20px; width: 440px;}
+.surveyTop .surveyInput .row {margin: 22px 0 0 55px; font-size: 15px; font-weight: bold;}
+.surveyTop .surveyInput .row p {margin-left: -15px;}
+.surveyTop .surveyInput label {display: inline-block; margin-right: 15px;}
+.surveyTop .surveyInput .agree {margin: 15px 0 0; padding: 12px 0 0 105px; background: url('../images/line_dot.png') repeat-x; font-size: 12px; font-weight: bold;}
+.surveyTop .surveyInput .agree .ftColor1 {text-decoration: underline;}
+.surveyTop .surveyInput .btn {margin: 20px 0 0 100px;}
+
+.surveyWrap {width: 970px; margin: 0 auto;}
+.surveyWrap .inner {padding: 0 20px;}
+
+.surveyWrap .topTxt {padding: 10px 0 5px; font-weight: bold;}
+.surveyWrap .con:after {content: ""; display: block; clear: both;}
+.surveyWrap .con .leftWrap {position: relative; float: left; width: 460px;}
+.surveyWrap .con .rightWrap {position: relative; float: right; width: 460px;}
+.surveyWrap .con .boxTitle {margin: 0;}
+
+.link {color: #004eec; text-decoration: underline;}
+
+.box2 {position: relative; margin-top: 20px; padding-top: 25px;}
+.box2 .moreLink {top: 0; right: 0;}
+
+.box2 table th, .box2 table td {border: 1px solid #a4a4a4; border-top: 0; font-size: 11px; font-weight: bold; letter-spacing: -1px;}
+.box2 table thead th {padding: 5px 0;background:#d4d4d4; border: 1px solid #a4a4a4; border-bottom: 0; font-size: 13px;}
+.box2 table td {padding: 15px;}
+.box2 table td.center {padding: 15px 0; text-align: center;}
+
+.comTop {background: #ebebeb;}
+.comTop .box {position: relative; width: 950px; margin: 0 auto; padding: 38px 0 30px;}
+.comTop .box .logo {position: absolute; top: 7px; right: 0;}
+.comWrap .inner {position: relative; padding: 40px 85px 20px 85px;}
+.comWrap .tit {margin: 0 0 20px;font-size: 21px;}
+.comWrap .list { font-size: 16px; line-height: 25px;}
+.comWrap .list > li {position: relative; padding-left: 16px;}
+.comWrap .list > li:after {content: ""; position: absolute; top: 6px; left: 0; border: 7px solid transparent; border-left: 10px solid #444;}
+.comWrap .list > li li {position: relative; padding-left: 8px;}
+.comWrap .list > li li:after {content: ""; position: absolute; top: 12px; left: 0; width: 2px; height: 2px; background: #222;}
+.comWrap .txt {margin: 30px 0 0; text-align: center; font-size: 18px; font-weight: bold; color: #0b0b0b;}
+.comWrap .link {position: absolute; top: 10px; right: 25px; padding: 5px 20px; background: #757f83; border-radius: 5px; color: #fff; font-size: 12px; text-decoration: none;}
+.comWrap #footer {background: #f0f0f0; border: 0; font-size: 11px;}
