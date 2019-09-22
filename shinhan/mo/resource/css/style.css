@@ -1,9 +1,9 @@
 @charset "utf-8";
 
 /* default */
-* {margin:0;padding:0;}
+* {margin:0;padding:0;box-sizing:border-box;}
 html {height:100%;font-size:62.5%;}
-body {height:100%;color:#333;font:14px/1.5 '맑은 고딕', '돋움', sans-serif;-webkit-text-size-adjust:none;word-break:keep-all;}
+body {height:100%;color:#333;font:14px/1.5 "Helvetica Neue","Apple SD Gothic Neo",sans-serif;-webkit-text-size-adjust:none;word-break:keep-all;}
 a {color:inherit;text-decoration:none;}
 li {list-style:none;}
 table {width:100%;border-collapse:collapse;border:0;table-layout:fixed;}
@@ -12,7 +12,98 @@ select, textarea, button, .inputTxt {font-size:inherit;line-height:inherit;color
 fieldset, img {border:0;}
 img {vertical-align:top;}
 label, td img {vertical-align:middle;}
-legend, caption, .hidden {position:absolute;z-index:-1;font:0/0 a;}
+legend, caption, .hidden {display: none;}
 address, em {font-style:normal;}
 button {overflow:visible;cursor:pointer;background:none;border:0;border-radius:0;}
 button::-moz-focus-inner {padding:0;border:0;}
+
+.ftColor1 {color: #ff2000;}
+.inputTxt {border: 1px solid #b8b8b8;-webkit-appearance: none;}
+.head {position: absolute; top: 0; right: 0; left: 0;}
+.head .logo {position: absolute; top: 10px; right: 9px;}
+.head .logo img {width: 75px;}
+.head .txt {padding: 7px 0 0 4px; font-size: 10px; font-weight: bold;}
+.topWrap {position: relative;}
+.infoInput {padding: 0 0 7px; border-bottom: 1px solid #dfdfdf;}
+.infoInput .txt {padding: 5px 12px; border-bottom: 1px solid #cecece; font-size: 11px;}
+.infoInput .row {position: relative;margin: 5px 4px;}
+.infoInput .row .inputTxt {width: 100%; height: 36px; padding: 0 20px; border-radius: 4px;}
+.infoInput .genderRow {padding-right: 150px;}
+.infoInput .genderSel {position: absolute; top: 0; right: 0; font-size: 0;}
+.infoInput .genderSel input[type="radio"] {-webkit-appearance: none; width: 71px; height: 36px; border-radius: 0; border: 0;}
+.infoInput .genderSel input[type="radio"]:checked {background-position: -71px 0 !important;}
+.infoInput .genderSel .male input[type="radio"] {background: url('../images/male.png') no-repeat;background-size: 142px auto;}
+.infoInput .genderSel .female input[type="radio"] {background: url('../images/female.png') no-repeat;background-size: 142px auto;}
+.infoInput .phoneRow {padding-right: 68px;}
+.infoInput .phoneRow button {position: absolute; top: 0; right: 0; width: 63px;}
+.infoInput .phoneRow button img {width: 100%;}
+.infoInput .cnumRow {padding-right: 137px;}
+.infoInput .cnumRow button {position: absolute; top: 0; right: 68px; width: 62px;}
+.infoInput .cnumRow button img {width: 100%;}
+.infoInput .cnumRow .time {position: absolute; top: 12px; right: 0; font-size: 10px;}
+.infoInput .agreeChk {margin: 10px 4px 0;font-size: 11px;}
+.infoInput .agreeChk .allChk {margin: 0 0 5px;font-size: 14px;}
+.infoInput .agreeChk label input {vertical-align: -2px;}
+.infoInput .btn {margin: 40px 0;text-align: center;}
+.infoInput .btn img {width: 140px;}
+.infoInput .txt2 {margin: 0 10px;font-size: 10px;}
+.midBtn {display: table; width: 100%; padding: 8px 4px; text-align: center;}
+.midBtn span {display: table-cell; width: 50%; padding: 0 4px;}
+.midBtn a {display: block; line-height: 20px; font-size: 11px; letter-spacing: -1px; background: #9e9e9e; color: #fff; border-radius: 4px;}
+.midBtn a:after {content: ""; margin-left: 4px; border: 4px solid transparent; border-left: 6px solid #fff; border-right: 0; font-size:0; vertical-align: 4px;}
+.bgWrap {padding: 0 4px; background: #f2f2f2;}
+.altTxt p {font-size: 10px;}
+
+.box {position: relative;}
+.box .boxTitle {font-size: 11px;}
+.box .boxTitle span {display: inline-block; margin: 10px 0 0; padding: 4px; background: #8a8a8a; color: #fff;}
+.boxLink {position: absolute; top: 14px; right: 0; padding: 0 5px; line-height: 26px; background: #727272; color: #fff; font-size: 10px; line-height: 2;}
+.boxLink:after {content: ""; margin-left: 4px; border: 4px solid transparent; border-left: 4px solid #fff; border-right: 0; font-size: 0; vertical-align: 4px;}
+
+.table th,
+.table td {padding: 4px;font-size:10px;border: 1px solid #c2c2c2;}
+.table th {background: #e8e8e8;}
+.table .center {text-align: center;}
+.table .left {text-align: left;}
+
+.bulList li {position: relative; padding-left: 6px;}
+.bulList li:after {content: ""; position: absolute; top: 6px; left: 0; width: 2px; height: 2px; background: #252525; border-radius: 50%;}
+
+.bot {padding: 10px 0; border-bottom: 1px solid #d3d3d1; font-size: 10px;}
+.relCorp {padding: 0 0 4px;border-top: 1px solid #fff; text-align: right;}
+.relCorp img {vertical-align: middle;}
+
+#footer {padding: 8px; border-top: 1px solid #d2d2d2; text-align: center; font-size: 10px;}
+
+.surveyTop {border-bottom: 1px solid #dfdfdf;}
+.surveyTop .row {margin: 12px 0 0 36px; font-size: 12px; font-weight: bold;}
+.surveyTop .row p {margin-left: -10px;}
+.surveyTop .row label {margin-right: 10px;}
+.surveyTop .row label input {vertical-align: -2px;}
+.surveyTop .agreeChk {margin: 20px 10px 0; padding-top: 10px; border-top: 1px dotted #919191; text-align: center; font-weight: bold;}
+.surveyTop .agreeChk label {margin: 0 5px; font-size: 10px;}
+.surveyTop .agreeChk label input {vertical-align: -3px}
+.surveyTop .btn {margin: 30px 0 0; text-align: center;}
+.surveyTop .btn button {margin: 0 4px;}
+.surveyTop .btn img {height: 35px;}
+.surveyTop .txt {margin: 20px 0 0; font-size: 10px; text-align: center;}
+.surveyTop .img {margin: 15px 10px;}
+.surveyTop .img img {width: 100%;}
+
+.comWrap {position: relative; padding: 24px 0 0 20px;}
+.comWrap .tit {margin: 0 0 18px;font-size: 18px;}
+.comWrap .list {font-size: 10px;}
+.comWrap .list > li {position: relative; padding-left: 10px;}
+.comWrap .list > li:after {content: ""; position: absolute; top: 2px; left: 0; border: 4px solid transparent; border-left: 6px solid #444;}
+.comWrap .list > li li {position: relative; padding-left: 5px;}
+.comWrap .list > li li:after {content: ""; position: absolute; top: 6px; left: 0; width: 2px; height: 2px; background: #222;}
+.comWrap .txt {margin: 12px 0 10px;font-size: 10px; font-weight: bold; text-align: center;}
+.comWrap .link {position: absolute; top: 32px; right: 12px; padding: 5px 8px; background: #898989; color: #fff; font-size: 10px;}
+.comWrap .link:after {content: ""; margin-left: 4px; border: 4px solid transparent; border-left: 4px solid #fff; border-right: 0; font-size: 0; vertical-align: 4px;}
+
+.infoWrap {padding: 0 20px; font-size: 10px;}
+.infoWrap .title {margin: 20px 0 8px; font-size: 12px;}
+.infoWrap .title span {display: inline-block; padding: 3px 12px; background: #898989; color: #fff; border-radius: 12px;}
+.infoWrap .subTit ~ .subTit {margin: 20px 0 0;}
+.infoWrap .subTit + div {margin-left: 10px;}
+.infoWrap #footer {background: #f8f8f8;}
