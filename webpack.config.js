@@ -13,7 +13,27 @@ module.exports = {
 	module : {
 		rules: [{
 			test: /\.vue$/,
-			loader: 'vue-loader',
+			use: 'vue-loader',
+		}, {
+			test: /\.scss$/,
+			use: [
+				'vue-style-loader',
+				{
+					loader: 'css-loader',
+					options: {
+						esModule: false,
+					}
+				},
+				{
+					loader: 'sass-loader',
+					options: {
+						sourceMap: true,
+						sassOptions: {
+							outputStyle: 'compressed',
+						}
+					}
+				}
+			]
 		}],
 	},
 	plugins: [
@@ -22,5 +42,6 @@ module.exports = {
 	output: {
 		filename: '[name].js',
 		path: path.join(__dirname, 'dist'),
+		publicPath: '/dist',
 	}
 }

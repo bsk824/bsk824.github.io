@@ -1,6 +1,7 @@
 <template>
-	<div>
+	<div id="wrap">
 		<h1>{{result}}</h1>
+		<button @click="onChg">click</button>
 	</div>
 </template>
 
@@ -12,10 +13,17 @@ export default {
 		}
 	},
 	methods: {
+		onChg() {
+			this.result = 'aa';
+		}
 	}
 }
 </script>
 
-<style lang="stylus">
-
+<style lang="scss">
+	#wrap {
+		background:blue;
+		h1 {font-size: 30px;}
+	}
+	
 </style>
