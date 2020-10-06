@@ -2,10 +2,10 @@
   "name": "pages",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
-	"build": "webpack --watch",
-	"dev" : "webpack-dev-server --hot"
+    "build": "webpack --watch",
+    "dev": "webpack-dev-server --hot"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,13 @@
     "vue": "^2.6.12"
   },
   "devDependencies": {
+    "browser-sync": "^2.26.12",
     "css-loader": "^4.3.0",
+    "gulp": "^4.0.2",
+    "gulp-nunjucks-render": "^2.2.3",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
     "node-sass": "^4.14.1",
     "sass-loader": "^10.0.2",
     "vue-loader": "^15.9.3",

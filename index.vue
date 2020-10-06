@@ -22,8 +22,7 @@ export default {
 
 <style lang="scss">
 	#wrap {
-		background:blue;
+		background:red;
 		h1 {font-size: 30px;}
 	}
-	
 </style>

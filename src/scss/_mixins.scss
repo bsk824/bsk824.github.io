@@ -45,10 +45,31 @@
 		border-right: 0;
 	} 
 }
-@mixin clear {
+@mixin bul($w: null, $h: null, $t: null, $r: null, $c: null) {
+	&:after {
+		content: "";
+		position: absolute;
+		top: $t; left: 0;
+		width: $w; height: $h;
+		border-radius: $r;
+		background: $c;
+	}
+}
+@mixin clear() {
 	&:after {
 		content: "";
 		display: block;
 		clear: both;
 	}
+}
+@mixin align() {
+	&:after {
+		content: "";
+		display: inline-block;
+		height: 100%;
+		vertical-align: middle;
+	}
+}
+@function r($px) {
+	@return ($px/2) * 0.1 + rem;
 }
