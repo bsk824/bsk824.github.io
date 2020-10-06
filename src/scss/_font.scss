@@ -1,0 +1,40 @@
+
+@font-face {
+	font-family:'noto';
+	font-style:normal;
+	font-weight:200;
+	src:local('NotoSansLight'), local('NotoSansLight'), url(../fonts/notokr/NotoSansKR-Light.eot);
+	src:url(../fonts/notokr/NotoSansKR-Light.eot?#iefix) format('embedded-opentype'),
+		 url(../fonts/notokr/NotoSansKR-Light.woff2) format('woff2'),
+		 url(../fonts/notokr/NotoSansKR-Light.woff) format('woff');;
+}
+
+@font-face {
+	font-family:'noto';
+	font-style:normal;
+	font-weight:400;
+	src:local('NotoSansRegular'), local('NotoSansRegular'), url(../fonts/NotoSansKR-Regular.eot);
+	src:url(../fonts/NotoSansKR-Regular.eot?#iefix) format('embedded-opentype'),
+		 url(../fonts/NotoSansKR-Regular.woff2) format('woff2'),
+		 url(../fonts/NotoSansKR-Regular.woff) format('woff');
+}
+
+@font-face {
+	font-family:'noto';
+	font-style:normal;
+	font-weight:600;
+	src:local('NotoSansMedium'), local('NotoSansMedium'), url(../fonts/NotoSansKR-Medium.eot);
+	src:url(../fonts/NotoSansKR-Medium.eot?#iefix) format('embedded-opentype'),
+		url(../fonts/NotoSansKR-Medium.woff2) format('woff2'),
+		url(../fonts/NotoSansKR-Medium.woff) format('woff');
+}
+
+@font-face {
+	font-family:'noto';
+	font-style:normal;
+	font-weight:800;
+	src:local('NotoSansBold'), local('NotoSansBold'), url(../fonts/NotoSansKR-Bold.eot);
+	src:url(../fonts/NotoSansKR-Bold.eot?#iefix) format('embedded-opentype'),
+		url(../fonts/NotoSansKR-Bold.woff2) format('woff2'),
+		url(../fonts/NotoSansKR-Bold.woff) format('woff');
+}

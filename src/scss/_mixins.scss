@@ -1,0 +1,54 @@
+@mixin ellipsis {
+	display: inline-block;
+	width: 100%;
+	max-width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+@mixin font($f: null, $l: null, $c: null, $s: null, $w: null, $a: null) {
+	color: $c;
+	font-family: $f;
+	font-size: $s;
+	font-weight: $w;
+	text-align: $a;
+	line-height: $l;
+}
+@mixin pos($p: null, $t: null, $r: null, $b: null, $l: null, $z: null, $a: null) {
+	position: $p;
+	z-index: $z;
+	@if $a != null {
+		top: $a;
+		right: $a;
+		bottom: $a;
+		left: $a;
+	} @else {
+		top: $t;
+		right: $r;
+		bottom: $b;
+		left: $l;
+	}
+}
+@mixin arrow($dir: null, $w: null, $h: null, $c: null) {
+	border: $w/2 solid transparent;
+	@if $dir == down {
+		border-top: $h solid $c;
+		border-bottom: 0;
+	} @else if $dir == up {
+		border-bottom: $h solid $c;
+		border-top: 0;
+	} @else if $dir == left {
+		border-right: $h solid $c;
+		border-left: 0;
+	} @else if $dir == right {
+		border-left: $h solid $c;
+		border-right: 0;
+	} 
+}
+@mixin clear {
+	&:after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}
