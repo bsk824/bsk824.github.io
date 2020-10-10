@@ -1,4 +1,5 @@
 import Vue from 'vue';
-import index from './index';
 
-new Vue(index).$mount('#root');
+import index from './Router';
+
+new Vue(index).$mount('#root'); 
