@@ -1,13 +1,13 @@
 {% macro include(fileName) -%}
 	{% include fileName ignore missing -%}
 {% endmacro -%}
+{% set path = '/resource/' %}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
 	{{ include("inc/head.html") | tabIndent(1) }}
 </head>
 <body>
-
 
 <div id="wrap" {%if pageVar.pageClass %}class="{{pageVar.pageClass}}"{% endif %}>
 	{{ include("inc/header.html") | tabIndent(1) }}
