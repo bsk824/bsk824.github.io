@@ -35,7 +35,7 @@ export default {
 	},
 	methods: {
 		getData() {
-			this.$axios.get('http://localhost:8080/data/?start='+this.dateStart+'&end='+this.dateEnd)
+			this.$axios.get('http://27.35.43.20:8080/covid/?start='+this.dateStart+'&end='+this.dateEnd)
 			.then((res) => {
 				if(res.data.response.body.items.item.length) {
 					this.list = res.data.response.body.items.item
