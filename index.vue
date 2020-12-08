@@ -1,28 +1,22 @@
 <template>
 	<div id="wrap">
-		<h1>{{result}}</h1>
-		<button @click="onChg">click</button>
+		<Header />
+		<router-view></router-view>
 	</div>
 </template>
 
 <script>
+import Header from './components/common/header';
+
 export default {
-	data() {
-		return {
-			result: 'hello',
-		}
-	},
-	methods: {
-		onChg() {
-			this.result = 'aa';
-		}
+	components: {
+		Header
 	}
 }
 </script>
 
 <style lang="scss">
 	#wrap {
-		background:red;
 		h1 {font-size: 30px;}
 	}
 </style>
