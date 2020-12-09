@@ -2,15 +2,15 @@
 	<section>
 		<h2>{{result}}</h2>
 		<div class="search">
-			<input type="text" v-model="dateStart" maxlength="8" placeholder="예) 20201201">
-			<input type="text" v-model="dateEnd" maxlength="8" placeholder="예) 20201202">
-			<button @click="getData()">click</button>
+			<input type="text" v-model="dateStart" maxlength="8" placeholder="예) 20201201" @keyup.enter="getData">
+			<input type="text" v-model="dateEnd" maxlength="8" placeholder="예) 20201202" @keyup.enter="getData">
+			<button @click="getData">click</button>
 		</div>
-		<div v-for="(row, idx) in list" :key="idx">
+		<div v-for="(row, idx) in filtered" :key="idx">
 			<p>기준일 : {{row.stateDt}}</p>
 			<p>기준시간 : {{row.stateTime}}</p>
-			<p>확진자 : {{row.decideCnt}}</p>
 			<p>확진자 수 : {{row.decideCnt}}</p>
+			<p>추가된 확진자 수 : {{row.new}}</p>
 			<p>격리해제 수 : {{row.clearCnt}}</p>
 			<p>검사진행 수 : {{row.examCnt}}</p>
 			<p>사망자 수 : {{row.deathCnt}}</p>
@@ -28,31 +28,54 @@ export default {
 	data() {
 		return {
 			result: 'covid',
-			dateStart : '',
-			dateEnd : '',
-			list : ''
+			dateStart : null,
+			dateEnd : null,
+			list : null,
+			filtered : null,
+			today : null
 		}
 	},
 	methods: {
-		getData() {
-			this.$axios.get('http://27.35.43.20:8080/covid/?start='+this.dateStart+'&end='+this.dateEnd)
-			.then((res) => {
-				if(res.data.response.body.items.item.length) {
-					this.list = res.data.response.body.items.item
-				} else {
-					this.list = [res.data.response.body.items.item];
+		sort() {
+			let totalList = this.list;
+			let dateStart = Number(this.dateStart);
+			let dateEnd = Number(this.dateEnd);
+			if(dateEnd == 0) dateEnd = this.today;
+			this.filtered = totalList.filter(function(item, idx){
+				let list;
+				if(item.stateDt >= dateStart && item.stateDt <= dateEnd) {
+					list = item;
+					if(totalList[idx-1] != undefined) {
+						item['new'] = totalList[idx-1].decideCnt - totalList[idx].decideCnt;
+					}
 				}
-			})
-			.then((err) => {
-				console.log(err);
-			})
+				return list;
+			});
+		},
+		getData() {
+			if(this.list === null) {
+				let today = new Date();
+				let year = String(today.getFullYear());
+				let month = String(today.getMonth() + 1);
+				let date = String(today.getDate());
+				if(date < 10) date = '0'+date;
+				this.today = Number(year + month + date);
+				this.$axios.get('http://localhost:8080/covid/?start=20200101&end='+this.today)
+				.then((res) => {
+					this.list = res.data.response.body.items.item;
+					this.sort();
+				})
+				.then((err) => {
+					console.log(err);
+				});
+			} else {
+				this.sort();
+			}
+			
 		}
 	}
 }
 </script>
 
 <style lang="scss">
-	#wrap {
-		h1 {font-size: 30px;}
-	}
 </style>
