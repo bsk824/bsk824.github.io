@@ -60,9 +60,10 @@ export default {
 				let date = String(today.getDate());
 				if(date < 10) date = '0'+date;
 				this.today = Number(year + month + date);
-				this.$axios.get('http://localhost:8080/covid/?start=20200101&end='+this.today)
+				this.$axios.get('/sample/data.json')
 				.then((res) => {
-					this.list = res.data.response.body.items.item;
+					const data = JSON.parse(res.data);
+					this.list = data.response.body.items.item;
 					this.sort();
 				})
 				.then((err) => {
@@ -76,6 +77,3 @@ export default {
 	}
 }
 </script>
-
-<style lang="scss">
-</style>

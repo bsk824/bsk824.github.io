@@ -5,7 +5,7 @@ module.exports = {
 	mode: 'development',
 	devtool: 'eval',
 	resolve: {
-		extensions: ['.js', '.vue'],
+		extensions: ['.js', '.vue', '.scss'],
 	},
 	entry : {
 		app: path.join(__dirname, 'main.js'),
@@ -34,6 +34,9 @@ module.exports = {
 					}
 				}
 			]
+		}, {
+			test: /\.(woff|woff2|eot|ttf|otf)$/,
+			loader: 'url-loader?limit=100000',
 		}],
 	},
 	plugins: [

@@ -31,9 +31,3 @@ export default {
 	}
 }
 </script>
-
-<style lang="scss">
-	#wrap {
-		h1 {font-size: 30px;}
-	}
-</style>

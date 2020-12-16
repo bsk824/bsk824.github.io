@@ -9,14 +9,22 @@
 import Header from './components/common/header';
 
 export default {
-	components: {
-		Header
+	components: {Header},
+	created: function() {
+		window.addEventListener('keydown', function(){
+			if(event.code === 'F5') {
+				console.log('새로고침 안됌!')
+				event.preventDefault();
+			}
+		});
 	}
 }
+
 </script>
 
 <style lang="scss">
-	#wrap {
-		h1 {font-size: 30px;}
-	}
+@import '/src/scss/_var';
+@import '/src/scss/_mixins';
+@import '/src/scss/_font';
+@import '/src/scss/_default';
 </style>

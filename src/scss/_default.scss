@@ -7,10 +7,10 @@ html {
 body {
 	-webkit-text-size-adjust: none;
 	margin: 0;
-	font: 14px/1 "noto", "Helvetica Neue", "Apple SD Gothic Neo", sans-serif;
-	font-weight: 300;
-	letter-spacing: -.025em;
-	color: #111;
+	font: 14px/1.5 "noto";
+	text-shadow: rgba(0,0,0,.1) 0 0 0.45px;
+	background: #eff2f7;
+	color: #000;
 }
 h1,h2,h3,h4,h5,h6,p,figure,ul,ol,dl,dd,fieldset,pre {margin: 0;}
 ol, ul, td, fieldset {padding: 0;}
@@ -45,12 +45,8 @@ img {
 	max-width: 100%;
 }
 label, td img {vertical-align: middle;}
-h1,h2,h3,h4,h5,strong,b,th {font-weight: 400;}
-legend, caption, .hidden {
-	position: fixed;
-	width: 0; height: 0;
-	overflow: hidden;
-}
+h1,h2,h3,h4,h5,strong,b,th {font-weight: 600;}
+legend, caption, .blind {@include blind;}
 address, em {font-style: normal;}
 button {
 	margin: 0;
@@ -60,82 +56,11 @@ button {
 	background: none;
 	border: 0;
 	border-radius: 0;
+	> span {position: relative;}
 }
 pre {white-space: pre-line;}
 
-select {
-	border: 1px solid #ddd;
-}
-textarea {
-	width: 100%;
-	border: 1px solid #ddd;
-	overflow: auto;
-	resize: none;
-}
-.inputTxt {
-	height: r(60);
-	line-height: r(64);
-	padding: 0 r(20);
-	border: 1px solid #ddd;
-}
-.inputChk {
-	-webkit-appearance: none;
-	position: relative;
-	background:#fff url('/resource/images/input_chk.png') no-repeat -999px 0;
-	border: 1px solid #1c2536;
-	border-radius: 0;
-	&:checked {background-position: 50%;}
-}
-.inputRadio {
-	@extend .inputChk;
-	background:#fff url('/resource/images/input_radio.png') no-repeat -999px 0;
-	border-radius: 50%;
-}
-.table1 {
-	border-top: 1px solid #111;
-	border-bottom: 1px solid #111;
-	th, td {
-		height: r(80);
-		padding: 0 0 0 r(20);
-		border-top: 1px solid #ddd;
-		text-align: left;
-		font-weight: 300;
-	}
-	th {font-weight: 400;}
-	tr:first-child {
-		th, td {border: 0;}
-	}
-}
-.btnWrap {
-	display: flex;
-}
-[class*="btnType"] {
-	display: inline-block;
-	align-items: center;
-	text-align: center;
-	box-sizing: border-box;
-	font-weight: 400;
-}
-.btnType1 {
-	background: #112b66;
-	border: 1px solid #112b66;
-	color: #fff;
-}
-.btnType2 {
-	background: #fff;
-	border: 1px solid #112b66;
-	color: #22314e;
-}
-.btnType1-lg {
-	@extend .btnType1;
-	width: 100%; height: r(80);
-	line-height: r(80);
-}
-.btnType2-lg {
-	@extend .btnType2;
-	width: 100%; height: r(80);
-	line-height: r(80);
-}
+hr {margin: 50px 0; border-top: 1px solid red;}
 
 .slideContainer {overflow: hidden;}
 .swiper-wrapper {
@@ -148,6 +73,9 @@ textarea {
 		flex-shrink: 0;
 	}
 }
-
-.ftc1 {color: #6c83ac;}
-
+#wrap { min-width: 1210px;}
+.defalut-layout {
+	min-height: calc(100vh - 88px);
+	margin-bottom: -88px; 
+	padding-bottom: 88px;
+}

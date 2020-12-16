@@ -1,10 +1,22 @@
 @mixin ellipsis {
-	display: inline-block;
-	width: 100%;
-	max-width: 100%;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
+}
+@mixin display($type: null, $float: null, $a: null, $w: null, $h: null, $minw: null, $maxw: null, $minh: null, $maxh: null) {
+	display: $type;
+	float: $float;
+	@if $a != null {
+		width: $a;
+		height: $a;
+	} @else {
+		width: $w;
+		height: $h;
+	}
+	min-width: $minw;
+	max-width: $maxw;
+	min-height: $minh;
+	max-height: $maxh;
 }
 @mixin font($f: null, $l: null, $c: null, $s: null, $w: null, $a: null) {
 	color: $c;
@@ -70,6 +82,11 @@
 		vertical-align: middle;
 	}
 }
-@function r($px) {
-	@return ($px/2) * 0.1 + rem;
+@mixin blind() {
+	position: absolute;
+	height: 1px; width: 1px;
+	overflow: hidden; 
+	clip: rect(1px,1px,1px,1px); clip: rect(1px 1px 1px 1px);
+	word-break: initial;
+	word-wrap: initial;
 }
