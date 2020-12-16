@@ -9,7 +9,7 @@ import css1 from '../components/css/css1.vue';
 import css2 from '../components/css/css2.vue';
 import js from '../components/js/js.vue';
 import js1 from '../components/js/js1.vue';
-import air from '../components/air.vue';
+import air from '../components/js/air.vue';
 import covid from '../components/js/covid.vue';
 
 Vue.use(VueRouter);
