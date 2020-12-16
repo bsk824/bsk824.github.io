@@ -27,4 +27,5 @@ export default {
 @import '/src/scss/_mixins';
 @import '/src/scss/_font';
 @import '/src/scss/_default';
+@import '/src/scss/_layout';
 </style>

@@ -1,5 +1,5 @@
 <template>
-	<section>
+	<section class="contents">
 		js
 	</section>
 </template>

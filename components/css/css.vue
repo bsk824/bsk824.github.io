@@ -1,11 +1,11 @@
 <template>
-	<div>
+	<div class="container">
 		<nav class="snb">
-			<router-link to="/css">css1</router-link>
-			<router-link to="/css/css2">css2</router-link>
+			<ul>
+				<li><router-link to="/css">css1</router-link></li>
+				<li><router-link to="/css/css2">css2</router-link></li>
+			</ul>
 		</nav>
-		<div>
-			<router-view name="sub"></router-view>
-		</div>
+		<router-view name="sub"></router-view>
 	</div>
 </template>

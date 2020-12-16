@@ -37,12 +37,12 @@ export default {
 	},
 	methods: {
 		sort() {
-			let totalList = this.list;
-			let dateStart = Number(this.dateStart);
-			let dateEnd = Number(this.dateEnd);
+			var totalList = this.list;
+			var dateStart = Number(this.dateStart);
+			var dateEnd = Number(this.dateEnd);
 			if(dateEnd == 0) dateEnd = this.today;
 			this.filtered = totalList.filter(function(item, idx){
-				let list;
+				var list;
 				if(item.stateDt >= dateStart && item.stateDt <= dateEnd) {
 					list = item;
 					if(totalList[idx-1] != undefined) {
@@ -54,10 +54,10 @@ export default {
 		},
 		getData() {
 			if(this.list === null) {
-				let today = new Date();
-				let year = String(today.getFullYear());
-				let month = String(today.getMonth() + 1);
-				let date = String(today.getDate());
+				var today = new Date();
+				var year = String(today.getFullYear());
+				var month = String(today.getMonth() + 1);
+				var date = String(today.getDate());
 				if(date < 10) date = '0'+date;
 				this.today = Number(year + month + date);
 				this.$axios.get('/sample/data.json')
