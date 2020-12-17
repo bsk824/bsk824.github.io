@@ -1,5 +1,5 @@
 <template>
 	<section class="contents">
-		html2
+		vue2
 	</section>
 </template>

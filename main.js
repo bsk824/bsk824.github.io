@@ -8,5 +8,5 @@ new Vue({
 	render: function(h) {
 		return h(index)
 	},
-	router
+	router,
 }).$mount('#root');

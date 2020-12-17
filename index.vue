@@ -23,9 +23,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import '/src/scss/_var';
-@import '/src/scss/_mixins';
-@import '/src/scss/_font';
-@import '/src/scss/_default';
-@import '/src/scss/_layout';
+@import './src/scss/style.scss';
 </style>
