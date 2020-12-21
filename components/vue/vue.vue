@@ -2,7 +2,6 @@
 	<div class="container">
 		<nav class="snb">
 			<ul>
-				<li><router-link to="/vue">vue1</router-link></li>
 				<li><router-link to="/vue/covid">covid</router-link></li>
 			</ul>
 		</nav>
