@@ -1,79 +1,170 @@
 <template>
 	<section>
-		<h2>{{result}}</h2>
+		<h2>고로나 현황</h2>
 		<div class="search">
-			<input type="text" v-model="dateStart" maxlength="8" placeholder="예) 20201201" @keyup.enter="getData">
-			<input type="text" v-model="dateEnd" maxlength="8" placeholder="예) 20201202" @keyup.enter="getData">
-			<button @click="getData">click</button>
+			<datepicker :language="ko" :disabled-dates="disabledDates" format="yyyyMMdd" v-model="dateStart" placeholder="시작일"></datepicker>
+			<datepicker :language="ko" :disabled-dates="disabledDates" format="yyyyMMdd" v-model="dateEnd" placeholder="마지막일"></datepicker>
+			<button @click="getData">검색</button>
 		</div>
-		<div v-for="(row, idx) in filtered" :key="idx">
-			<p>기준일 : {{row.stateDt}}</p>
-			<p>기준시간 : {{row.stateTime}}</p>
-			<p>확진자 수 : {{row.decideCnt}}</p>
-			<p>추가된 확진자 수 : {{row.new}}</p>
-			<p>격리해제 수 : {{row.clearCnt}}</p>
-			<p>검사진행 수 : {{row.examCnt}}</p>
-			<p>사망자 수 : {{row.deathCnt}}</p>
-			<p>치료중 환자 수 : {{row.careCnt}}</p>
-			<p>결과 음성 수 : {{row.resutlNegCnt}}</p>
-			<p>누적 검사 수 : {{row.accExamCnt}}</p>
-			<p>누적 검사 완료 수 : {{row.accExamCompCnt}}</p>
-			<p>누적 확진률 : {{row.accDefRate}}</p>
+		<div class="graph-wrap">
+			<div class="day-graph" v-if="filtered">
+				<div class="day-list" v-for="(row, idx) in filtered" :key="idx">
+					<p class="date">{{row.stateDt}}</p>
+					<div class="bar">
+						<p class="new-count">{{row.new}}</p>
+					</div>
+					<div class="day-layer">
+						<p>기준시간 : {{row.stateTime}}</p>
+						<p>확진자 수 : {{row.decideCnt}}</p>
+						<p>격리해제 수 : {{row.clearCnt}}</p>
+						<p>검사진행 수 : {{row.examCnt}}</p>
+						<p>사망자 수 : {{row.deathCnt}}</p>
+						<p>치료중 환자 수 : {{row.careCnt}}</p>
+						<p>결과 음성 수 : {{row.resutlNegCnt}}</p>
+						<p>누적 검사 수 : {{row.accExamCnt}}</p>
+						<p>누적 검사 완료 수 : {{row.accExamCompCnt}}</p>
+						<p>누적 확진률 : {{row.accDefRate}}</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
 </template>
 
+<style lang="scss">
+.graph-wrap {
+	overflow: auto;
+	padding-bottom: 30px;
+}
+.day {
+	&-graph {
+		display: flex;
+		height: 300px;
+		align-items: flex-end;
+	}
+	&-list {
+		position: relative;
+		display: flex;
+		align-items: flex-end;
+		height: 50%;
+		border-bottom: 1px solid #d3d4d6;
+		&:hover {
+			.day-layer {display: block;}
+		}
+		.bar {
+			position: absolute;
+			top: 0; bottom: 0; left: 50%;
+			width: 20px; margin-left: -10px;
+			background: red;
+		}
+		.date {
+			position: relative;
+			bottom: -25px;
+			margin: 0 10px;
+			z-index: 2;
+		}
+		.new-count {
+			position: absolute;
+			top: -20px; left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+	&-layer {
+		position: absolute;
+		display: none;
+		white-space: nowrap;
+			z-index: 2;
+	}
+}
+</style>
+
 <script>
+import Datepicker from 'vuejs-datepicker';
+import {ko} from 'vuejs-datepicker/dist/locale';
+
 export default {
 	data() {
 		return {
-			result: 'covid',
+			ko: ko,
 			dateStart : null,
 			dateEnd : null,
 			list : null,
 			filtered : null,
-			today : null
+			disabledDates: {
+				to: new Date(2020, 0, 1),
+				from: new Date(),
+			}
 		}
 	},
+	components: {
+		Datepicker
+	},
 	methods: {
-		sort() {
+		formatPicker(val){
+			var formatVal = null;
+			var day = new Date(val);
+			day.setDate(day.getDate() - 1);
+			var year = String(day.getFullYear());
+			var month = String(day.getMonth() + 1);
+			var date = String(day.getDate());
+			if(month < 10) month = '0'+month;
+			if(date < 10) date = '0'+date;
+			return formatVal = Number(year + month + date);
+		},
+		listFilter() {
+			var start;
+			var end;
+			if(this.dateStart == null) {
+				start = '20200101';
+			} else {
+				start = this.formatPicker(this.dateStart);
+			}
+			if(this.dateEnd == null) {
+				end = this.formatPicker(new Date);
+			} else {
+				end = this.formatPicker(this.dateEnd);
+			}
+
+			console.log(start, end);
+
 			var totalList = this.list;
-			var dateStart = Number(this.dateStart);
-			var dateEnd = Number(this.dateEnd);
-			if(dateEnd == 0) dateEnd = this.today;
+			var maxNum = 0;
 			this.filtered = totalList.filter(function(item, idx){
 				var list;
-				if(item.stateDt >= dateStart && item.stateDt <= dateEnd) {
+				if(item.stateDt >= start && item.stateDt <= end) {
 					list = item;
+					item['new'] = 0;
 					if(totalList[idx-1] != undefined) {
 						item['new'] = totalList[idx-1].decideCnt - totalList[idx].decideCnt;
+						if(item['new'] > maxNum) {
+							maxNum = item['new'];
+						}
 					}
 				}
 				return list;
 			});
 		},
+		dateSort(prev, next) {
+			if(prev.stateDt == next.stateDt) {
+				return 0;
+			}
+			return prev.stateDt < next.stateDt ? 1 : -1;
+		},
 		getData() {
 			if(this.list === null) {
-				var today = new Date();
-				var year = String(today.getFullYear());
-				var month = String(today.getMonth() + 1);
-				var date = String(today.getDate());
-				if(date < 10) date = '0'+date;
-				this.today = Number(year + month + date);
 				this.$axios.get('/sample/data.json')
 				.then((res) => {
 					const data = JSON.parse(res.data);
-					this.list = data.response.body.items.item;
-					this.sort();
+					this.list = data.response.body.items.item.sort(this.dateSort);
+					this.listFilter();
 				})
 				.then((err) => {
 					console.log(err);
 				});
 			} else {
-				this.sort();
+				this.listFilter();
 			}
-			
-		}
+		},
 	}
 }
 </script>
