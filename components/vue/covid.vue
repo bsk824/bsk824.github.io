@@ -1,6 +1,5 @@
 <template>
 	<section>
-		<h2>고로나 현황</h2>
 		<div class="search">
 			<datepicker :language="ko" :disabled-dates="disabledDates" format="yyyyMMdd" v-model="dateStart" placeholder="시작일"></datepicker>
 			<datepicker :language="ko" :disabled-dates="disabledDates" format="yyyyMMdd" v-model="dateEnd" placeholder="마지막일"></datepicker>
@@ -8,7 +7,7 @@
 		</div>
 		<div class="graph-wrap">
 			<div class="day-graph" v-if="filtered">
-				<div class="day-list" v-for="(row, idx) in filtered" :key="idx">
+				<div class="day-list" v-for="(row, idx) in filtered" :key="idx" :style="{height: row.per+'%'}">
 					<p class="date">{{row.stateDt}}</p>
 					<div class="bar">
 						<p class="new-count">{{row.new}}</p>
@@ -30,54 +29,6 @@
 		</div>
 	</section>
 </template>
-
-<style lang="scss">
-.graph-wrap {
-	overflow: auto;
-	padding-bottom: 30px;
-}
-.day {
-	&-graph {
-		display: flex;
-		height: 300px;
-		align-items: flex-end;
-	}
-	&-list {
-		position: relative;
-		display: flex;
-		align-items: flex-end;
-		height: 50%;
-		border-bottom: 1px solid #d3d4d6;
-		&:hover {
-			.day-layer {display: block;}
-		}
-		.bar {
-			position: absolute;
-			top: 0; bottom: 0; left: 50%;
-			width: 20px; margin-left: -10px;
-			background: red;
-		}
-		.date {
-			position: relative;
-			bottom: -25px;
-			margin: 0 10px;
-			z-index: 2;
-		}
-		.new-count {
-			position: absolute;
-			top: -20px; left: 50%;
-			transform: translateX(-50%);
-		}
-	}
-	&-layer {
-		position: absolute;
-		display: none;
-		white-space: nowrap;
-			z-index: 2;
-	}
-}
-</style>
-
 <script>
 import Datepicker from 'vuejs-datepicker';
 import {ko} from 'vuejs-datepicker/dist/locale';
@@ -128,8 +79,9 @@ export default {
 			console.log(start, end);
 
 			var totalList = this.list;
+			
 			var maxNum = 0;
-			this.filtered = totalList.filter(function(item, idx){
+			var sortList = totalList.filter(function(item, idx){
 				var list;
 				if(item.stateDt >= start && item.stateDt <= end) {
 					list = item;
@@ -143,6 +95,10 @@ export default {
 				}
 				return list;
 			});
+			sortList.forEach(function(arr){
+				arr['per'] = arr.new * 100 / maxNum;
+			});
+			this.filtered = sortList;
 		},
 		dateSort(prev, next) {
 			if(prev.stateDt == next.stateDt) {
@@ -168,3 +124,61 @@ export default {
 	}
 }
 </script>
+
+<style lang="scss">
+.vdp-datepicker {
+	.vdp-datepicker__calendar {background: #000;}
+	.vdp-datepicker__calendar header {color: #fff;}
+	.vdp-datepicker__calendar header .prev:not(.disabled):hover,
+	.vdp-datepicker__calendar header .next:not(.disabled):hover,
+	.vdp-datepicker__calendar header .up:not(.disabled):hover {background: #000;}
+	.vdp-datepicker__calendar header .prev:after {border-right-color: #ddd;}
+	.vdp-datepicker__calendar header .next:after {border-left-color: #ddd;}
+	.vdp-datepicker__calendar header .prev.disabled:after {border-right-color: #000;}
+	.vdp-datepicker__calendar header .next.disabled:after {border-left-color: #000;}
+}
+.graph-wrap {
+	overflow: auto;
+	padding-bottom: 30px;
+}
+.day {
+	&-graph {
+		display: flex;
+		margin-top: 100px;
+		height: 200px;
+		align-items: flex-end;
+	}
+	&-list {
+		position: relative;
+		display: flex;
+		align-items: flex-end;
+		border-bottom: 1px solid #d3d4d6;
+		&:hover {
+			.day-layer {display: block;}
+		}
+		.bar {
+			position: absolute;
+			top: 0; bottom: 0; left: 50%;
+			width: 20px; margin-left: -10px;
+			background: red;
+		}
+		.date {
+			position: relative;
+			bottom: -25px;
+			margin: 0 10px;
+			z-index: 2;
+		}
+		.new-count {
+			position: absolute;
+			top: -20px; left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+	&-layer {
+		position: absolute;
+		display: none;
+		white-space: nowrap;
+			z-index: 2;
+	}
+}
+</style>
