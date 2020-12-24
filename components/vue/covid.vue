@@ -5,6 +5,9 @@
 			<datepicker :language="ko" :disabled-dates="disabledDates" format="yyyyMMdd" v-model="dateEnd" placeholder="마지막일"></datepicker>
 			<button @click="getData">검색</button>
 		</div>
+		<div style="position: relative; width: 100%;">
+			<canvas id="myChart"></canvas>
+		</div>
 		<div class="graph-wrap">
 			<div class="day-graph" v-if="filtered">
 				<div class="day-list" v-for="(row, idx) in filtered" :key="idx" :style="{height: row.per+'%'}">
@@ -27,11 +30,13 @@
 				</div>
 			</div>
 		</div>
+
 	</section>
 </template>
 <script>
 import Datepicker from 'vuejs-datepicker';
 import {ko} from 'vuejs-datepicker/dist/locale';
+import Chart from 'chart.js';
 
 export default {
 	data() {
@@ -44,7 +49,8 @@ export default {
 			disabledDates: {
 				to: new Date(2020, 0, 1),
 				from: new Date(),
-			}
+			},
+			newPs: null,
 		}
 	},
 	components: {
@@ -76,11 +82,11 @@ export default {
 				end = this.formatPicker(this.dateEnd);
 			}
 
-			console.log(start, end);
-
 			var totalList = this.list;
-			
+			var newList = [];
+			var dateList = [];
 			var maxNum = 0;
+
 			var sortList = totalList.filter(function(item, idx){
 				var list;
 				if(item.stateDt >= start && item.stateDt <= end) {
@@ -88,6 +94,10 @@ export default {
 					item['new'] = 0;
 					if(totalList[idx-1] != undefined) {
 						item['new'] = totalList[idx-1].decideCnt - totalList[idx].decideCnt;
+						if(idx > 0) {
+							newList.push(item['new']);
+						}
+						dateList.push(totalList[idx].stateDt);
 						if(item['new'] > maxNum) {
 							maxNum = item['new'];
 						}
@@ -99,6 +109,33 @@ export default {
 				arr['per'] = arr.new * 100 / maxNum;
 			});
 			this.filtered = sortList;
+			this.newPs = newList;
+			var ctx = document.getElementById('myChart');
+			let chart = new Chart(ctx, {
+				type: 'line',
+				data: {
+					labels: dateList,
+					datasets: [{
+						label: 'omg',
+						data: this.newPs,
+						backgroundColor: [
+							'rgba(255, 99, 132, 0.2)',
+						],
+						borderCapStyle: 'butt',
+						borderJoinStyle: 'miter',
+						borderColor: [
+							'rgba(255, 99, 132, 1)',
+						],
+						borderWidth: 1,
+						pointBackgroundColor: 'rgba(255,255,255)'
+					}]
+				},
+				options: {
+					tooltips: {
+						mode: 'nearest'
+					}
+				}
+			});
 		},
 		dateSort(prev, next) {
 			if(prev.stateDt == next.stateDt) {
