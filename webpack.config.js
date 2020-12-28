@@ -27,7 +27,6 @@ module.exports = (env, options) => {
 					{
 						loader: 'css-loader',
 						options: {
-							sourceMap: true,
 							esModule: false,
 						}
 					},
@@ -61,7 +60,6 @@ module.exports = (env, options) => {
 					{
 						loader: 'css-loader',
 						options: {
-							sourceMap: true,
 							esModule: false,
 						}
 					},
