@@ -145,7 +145,7 @@ export default {
 		},
 		getData() {
 			if(this.list === null) {
-				this.$axios.get('/sample/data.json')
+				this.$axios.get('/sample/covidDate.json')
 				.then((res) => {
 					const data = JSON.parse(res.data);
 					this.list = data.response.body.items.item.sort(this.dateSort);

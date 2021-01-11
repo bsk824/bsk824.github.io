@@ -5,6 +5,9 @@ const path = require('path');
 module.exports = (env, options) => {
 	const config = {
 		devtool: 'source-map',
+		devServer: {
+			host: "192.168.0.5"
+		},
 		resolve: {
 			extensions: ['.js', '.vue'],
 		},

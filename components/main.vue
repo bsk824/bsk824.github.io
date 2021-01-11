@@ -1,7 +1,7 @@
 <template>
 	<main>
-		<p>ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
-		<p>가나다라마바사아자차카타파하</p>
+		<p style="border-bottom: 1px solid #fff;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
+		<p style="border-bottom: .1rem solid #fff;">가나다라마바사아자차카타파하</p>
 
 		<hr>
 
@@ -26,6 +26,17 @@
 			<strong v-if="cal3_3">{{this.cal3_3}}</strong>
 		</div>
 
+		<hr>
+
+		<div>
+			모바일 디자인 가로 <input type="text" v-model="moCal" @keydown.enter="cal('typeMo')" style="width:100px;">px<br>
+			320화면 {{this.moCal1}}%<br>
+			360화면 {{this.moCal2}}%<br>
+			375화면 {{this.moCal3}}%<br>
+			412화면 {{this.moCal4}}%<br>
+			414화면 {{this.moCal5}}%<br>
+		</div>
+
 	</main>
 </template>
 
@@ -42,6 +53,14 @@ export default {
 			cal3_1: null,
 			cal3_2: null,
 			cal3_3: null,
+			moCal: null,
+			moCal1: null,
+			moCal2: null,
+			moCal3: null,
+			moCal4: null,
+			moCal5: null,
+			screen: window.screen.width,
+			ratio: window.devicePixelRatio,
 		}
 	},
 	methods: {
@@ -66,6 +85,13 @@ export default {
 			} else if(type == 'type3') {
 				let cal = this.cal3_1 * this.cal3_2 / 100;
 				this.cal3_3 = this.numberWithCommas(cal);
+			} else if(type == 'typeMo') {
+				let cal = this.moCal / 62.5;
+				this.moCal1 = 320 / cal;
+				this.moCal2 = 360 / cal;
+				this.moCal3 = 375 / cal;
+				this.moCal4 = 412 / cal;
+				this.moCal5 = 414 / cal;
 			}
 		}
 	},
@@ -75,8 +101,5 @@ export default {
 </script>
 
 <style lang="scss">
-	main {
-		padding: 90px 20px 20px;
-		font-size: 18px;
-	}
+	main {padding: 90px 20px 20px;}
 </style>
