@@ -8,6 +8,7 @@ import js from '../components/js/js.vue';
 import js1 from '../components/js/js1.vue';
 import vue from '../components/vue/vue.vue';
 import covid from '../components/vue/covid.vue';
+import BoardWrite from '../board/Write.vue';
 
 Vue.use(VueRouter);
 
@@ -29,6 +30,7 @@ export default new VueRouter({
 		{ path: '/vue', component: vue,
 			children : [
 				{ path: '/vue/covid', components: {sub : covid} },
+				{ path: '/vue/board/write', components: {sub : BoardWrite} },
 			]
 		},
 	]
