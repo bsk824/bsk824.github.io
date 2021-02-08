@@ -8,6 +8,6 @@ pages:
   - mv *
   artifacts:
     paths:
-    - public
+    - /
   only:
   - master
