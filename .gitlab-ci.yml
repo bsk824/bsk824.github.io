@@ -3,9 +3,6 @@
 pages:
   stage: deploy
   script:
-  - mkdir ./
-  - cp -r * ./
-  - mv ./ public
   artifacts:
     paths:
     - ./
