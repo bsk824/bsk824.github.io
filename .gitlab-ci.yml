@@ -2,8 +2,11 @@
 # Full project: https://gitlab.com/pages/plain-html
 pages:
   stage: deploy
+  - mkdir ./
+  - cp -r * ./
+  - mv ./ public
   artifacts:
     paths:
-    - /
+    - ./
   only:
   - master
