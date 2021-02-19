@@ -1,18 +1,9 @@
-html {
-	@media screen and (min-width: 0) {font-size: 53.33%;}
-	@media screen and (min-width: 360px) {font-size: 60%;}
-	@media screen and (min-width: 375px) {font-size: 62.5%;}
-	@media screen and (min-width: 412px) {font-size: 68.66%;}
-	@media screen and (min-width: 414px) {font-size: 69%;}
-	@media screen and (min-width: 768px) {font-size: 62.5%;}
-}
 body {
 	-webkit-text-size-adjust: none;
 	margin: 0;
-	font: 1.4rem/1.5 $font;
-	text-shadow: rgba(0,0,0,.1) 0 0 0.45px;
-	background: #0d1117;
-	color: #c9d1d9;
+	font: 14px/1.5 $font;
+	background: #1D1F40;
+	color: #fff;
 }
 h1,h2,h3,h4,h5,h6,p,figure,ul,ol,dl,dd,fieldset,pre {margin: 0;}
 ol, ul, td, fieldset {padding: 0;}
@@ -28,13 +19,11 @@ input, select, textarea, button, pre, a {
 	text-decoration: none;
 }
 input, select, textarea {
-	margin: 0; padding: 0 10px;
+	margin: 0; padding: 0;
 	-webkit-appearance: none;
 	border-radius: 0;
 	box-sizing: border-box;
 	vertical-align: top;
-	background: #000;
-	border: .1rem solid #c9d1d9;
 }
 li {list-style: none;}
 table {
@@ -60,23 +49,8 @@ button {
 	background: none;
 	border: 0;
 	border-radius: 0;
-	background: #000;
-	border: 1px solid #c9d1d9;
-	vertical-align: top;
 	> span {position: relative;}
 }
 pre {white-space: pre-line;}
 
-hr {margin: 25px 0; border: 1px solid #fff;}
-
-.slideContainer {overflow: hidden;}
-.swiper-wrapper {
-	position: relative;
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: flex;
-	.swiper-slide {
-		width: 100%;
-		flex-shrink: 0;
-	}
-}
+hr {margin: 50px 0; border-top: 1px solid red;}
