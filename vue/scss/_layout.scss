@@ -1,0 +1,48 @@
+.header {
+	@include pos($p: fixed, $t: 0, $r: 0, $l: 0, $z: 100);
+	display: flex;
+	height: 70px;
+	border-bottom: .1rem solid #c9d1d9;
+	align-items: center;
+	background: #161b22;
+	.logo {
+		padding: 14px 30px 14px 20px;
+		color: #2288ff;
+	}
+	.gnb {
+		a {
+			position: relative;
+			display: inline-block;
+			margin-right: 20px;
+		}
+		.router-link-active:after {
+			content: "";
+			@include pos($p: absolute, $r: 0, $b: 0, $l: 0);
+			border-bottom: 1px solid;
+		}
+	}
+}
+.container {
+	padding: 90px 20px 20px 20px;
+}
+
+.snb {
+	@include pos($p: fixed, $t: 70px, $b: 0, $l: 0);
+	width: 150px;
+	padding: 20px;
+	background: #161b22;
+	border-right: 1px solid #c9d1d9;
+	box-sizing: border-box;
+	a {
+		position: relative;
+	}
+	.router-link-exact-active:after {
+		content: "";
+		@include pos($p: absolute, $r: 0, $b: 0, $l: 0);
+		border-bottom: 1px solid;
+	}
+}
+
+.vdp-datepicker {
+	display: inline-block;
+}

@@ -1,10 +1,5 @@
 <template>
 	<main>
-		<p style="border-bottom: 1px solid #fff;">ABCDEFGHIJKLMNOPQRSTUVWXYZ</p>
-		<p style="border-bottom: .1rem solid #fff;">가나다라마바사아자차카타파하</p>
-
-		<hr>
-
 		<div>
 			<p>일부값 / 전체값 * 100 = %</p>
 			<input type="text" v-model="cal1_1" @keydown.enter="cal('type1')" style="width:100px;"> 에서
@@ -99,7 +94,3 @@ export default {
 	}
 }
 </script>
-
-<style lang="scss">
-	main {padding: 90px 20px 20px;}
-</style>

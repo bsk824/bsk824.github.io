@@ -1,7 +1,9 @@
 <template>
 	<div id="wrap">
 		<Header />
-		<router-view></router-view>
+		<div class="container">
+			<router-view></router-view>
+		</div>
 	</div>
 </template>
 
@@ -13,7 +15,7 @@ export default {
 	created: function() {
 		window.addEventListener('keydown', function(){
 			if(event.code === 'F5') {
-				console.log('새로고침 안됌!')
+				console.log('새로고침 안됌?!')
 				event.preventDefault();
 			}
 		});
@@ -23,5 +25,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import './src/scss/style.scss';
+@import './scss/style.scss';
 </style>
